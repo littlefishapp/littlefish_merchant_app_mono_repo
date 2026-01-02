@@ -19,6 +19,8 @@ dependencies:
   # Littlefish core dependencies
   littlefish_core: ^4.2.0
   littlefish_core_utils: ^4.2.3
+  littlefish_feature_models:
+    path: ../../models/littlefish_feature_models
   
 dev_dependencies:
   flutter_test:
