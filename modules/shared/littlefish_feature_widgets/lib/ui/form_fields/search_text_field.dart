@@ -6,8 +6,8 @@ import 'package:littlefish_merchant/app/theme/typography.dart';
 import 'package:littlefish_merchant/common/presentaion/components/form_fields/form_field_config/form_field_config.dart';
 import 'package:quiver/strings.dart';
 
-import '../../../../app/theme/applied_system/applied_surface.dart';
-import '../../../../app/theme/applied_system/applied_text_icon.dart';
+import '../../../../../widgets/app/theme/applied_system/applied_surface.dart';
+import '../../../../../widgets/app/theme/applied_system/applied_text_icon.dart';
 
 class SearchTextField extends StatefulWidget {
   final void Function(String input) onChanged;

@@ -9,9 +9,6 @@ import 'package:littlefish_merchant/ui/online_store/store_setup_v2/redux/viewmod
 import 'package:littlefish_merchant/ui/products/products/pages/product_page.dart';
 import 'package:littlefish_icons/littlefish_icons.dart';
 
-import '../../ui/online_store/store_setup_v2/pages/FeaturedCategories/online_store_add_category_page.dart';
-import '../../ui/online_store/store_setup_v2/pages/FeaturedCategories/online_store_publish_categories_page.dart';
-
 class StoreHelper {
   static List<StoreSection> createSectionList(
     BuildContext context,

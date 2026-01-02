@@ -5,7 +5,7 @@
 library;
 
 // Form fields
-export 'form_fields/form_fields.dart';
+export '../../../../widgets/littlefish_feature_widgets/lib/ui/form_fields/form_fields.dart';
 
 // Theming widgets
 export 'theming_widgets/theming_widgets.dart';

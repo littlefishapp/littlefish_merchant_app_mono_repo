@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'modal_theme_config.g.dart';
+part '../../../../../widgets/littlefish_feature_widgets/lib/ui/theming_widgets/modal_theme_config.g.dart';
 
 @JsonSerializable()
 class ModalThemeConfig {

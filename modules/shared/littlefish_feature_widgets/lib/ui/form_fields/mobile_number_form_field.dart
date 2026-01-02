@@ -7,8 +7,8 @@ import 'package:littlefish_merchant/models/settings/locale/country_stub.dart';
 import 'package:littlefish_merchant/providers/locale_provider.dart';
 import 'package:quiver/strings.dart';
 
-import '../../../../app/theme/applied_system/applied_surface.dart';
-import '../../../../app/theme/applied_system/applied_text_icon.dart';
+import '../../../../../widgets/app/theme/applied_system/applied_surface.dart';
+import '../../../../../widgets/app/theme/applied_system/applied_text_icon.dart';
 
 class MobileNumberFormField extends StatefulWidget {
   final String? hintText, labelText, initialValue;

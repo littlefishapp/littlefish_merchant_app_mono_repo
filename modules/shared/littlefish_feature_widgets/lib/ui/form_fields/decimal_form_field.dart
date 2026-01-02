@@ -1,25 +1,23 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:littlefish_merchant/app/app.dart';
+import 'package:littlefish_merchant/app/theme/applied_system/applied_surface.dart';
 import 'package:littlefish_merchant/app/theme/typography.dart';
 import 'package:littlefish_merchant/common/presentaion/components/form_fields/form_field_config/form_field_config.dart';
+import 'package:littlefish_merchant/tools/extensions/extensions.dart';
 
-import '../../../../app/theme/applied_system/applied_surface.dart';
-import '../../../../app/theme/applied_system/applied_text_icon.dart';
+import '../../../../../widgets/app/theme/applied_system/applied_text_icon.dart';
 
-class NumericFormField extends StatefulWidget {
+class DecimalFormField extends StatefulWidget {
   final String hintText, labelText;
-  final String? validationErrorMessage;
-  final int? initialValue;
+  final double? initialValue;
   final bool autoValidate;
-  final Function(int) onSaveValue;
-  final Function(int)? onFieldSubmitted;
-  final Function(int)? onChanged;
-
+  final Function(double) onSaveValue;
+  final Function(double)? onFieldSubmitted;
+  final Function(double)? onChanged;
   final FocusNode? focusNode;
   final FocusNode? nextFocusNode;
-  final int? maxLength;
-  final bool maxLengthEnforced;
   final TextInputAction inputAction;
   final IconData? suffixIcon;
   final IconData? prefixIcon;
@@ -27,61 +25,57 @@ class NumericFormField extends StatefulWidget {
   final bool isRequired;
   final Color? color;
   final TextEditingController? controller;
+  final OutlineInputBorder? outLineInputBorderStyle;
+  final OutlineInputBorder? focusOutLineInputBorderStyle;
   final bool useOutlineStyling;
-  final TextStyle? hintStyle;
-  final TextStyle? textStyle;
-  final TextStyle? labelStyle;
-  final bool showTextLengthCounter;
-  final bool isDense;
 
-  final FormFieldValidator<int>? validator;
-
-  const NumericFormField({
+  const DecimalFormField({
     required Key key,
     required this.onSaveValue,
     required this.hintText,
     required this.labelText,
-    this.validationErrorMessage,
+    this.onChanged,
+    this.controller,
     this.isRequired = false,
     this.inputAction = TextInputAction.done,
     this.suffixIcon,
     this.prefixIcon,
     this.onFieldSubmitted,
-    this.onChanged,
     this.focusNode,
     this.nextFocusNode,
     this.autoValidate = false,
     this.initialValue,
     this.enabled = true,
+    this.outLineInputBorderStyle,
+    this.focusOutLineInputBorderStyle,
     this.color,
-    this.validator,
-    this.controller,
-    this.isDense = false,
-    this.maxLength,
-    this.maxLengthEnforced = false,
-    this.showTextLengthCounter = true,
     this.useOutlineStyling = false,
-    this.hintStyle,
-    this.textStyle,
-    this.labelStyle,
   }) : super(key: key);
 
   @override
-  State<NumericFormField> createState() => _NumericFormFieldState();
+  State<DecimalFormField> createState() => _DecimalFormFieldState();
 }
 
-class _NumericFormFieldState extends State<NumericFormField> {
-  late int initialValue;
+class _DecimalFormFieldState extends State<DecimalFormField> {
+  late double initialValue;
   late TextEditingController controller;
+
   FocusNode? _focusNode;
 
   @override
   void initState() {
     controller = widget.controller ?? TextEditingController();
-    initialValue = widget.initialValue ?? 0;
-    controller.text = initialValue.toString();
+    initialValue =
+        widget.initialValue ?? double.tryParse(controller.text) ?? 0.0;
+    controller.text = initialValue > 0
+        ? formatDecimalString(initialValue.toString())
+        : '';
     _focusNode = widget.focusNode ?? FocusNode();
     _focusNode?.addListener(_handleFocusChange);
+    controller.selection = TextSelection(
+      baseOffset: 0,
+      extentOffset: controller.value.text.length,
+    );
     super.initState();
   }
 
@@ -96,26 +90,34 @@ class _NumericFormFieldState extends State<NumericFormField> {
   void _handleFocusChange() {
     if (!_focusNode!.hasFocus) {
       if (null != widget.onFieldSubmitted && validateValue(controller.text)) {
-        widget.onFieldSubmitted!(int.parse(controller.text));
+        controller.text = formatDecimalString((controller.text).toString());
+        widget.onFieldSubmitted!(formatDecimal(controller.text)!);
       }
+    } else {
+      controller.selection = TextSelection(
+        baseOffset: 0,
+        extentOffset: controller.value.text.length,
+      );
     }
   }
 
   @override
-  void didUpdateWidget(NumericFormField oldWidget) {
+  void didUpdateWidget(DecimalFormField oldWidget) {
+    super.didUpdateWidget(oldWidget);
     if (widget.controller != null &&
         (widget.controller != oldWidget.controller)) {
       controller = widget.controller ?? TextEditingController();
     }
 
     if (widget.initialValue != oldWidget.initialValue) {
-      controller = TextEditingController(text: widget.initialValue.toString());
+      controller = TextEditingController(
+        text: formatDecimalString(widget.initialValue.toString()),
+      );
     }
 
     if (oldWidget.controller == null) {
       return;
     }
-    super.didUpdateWidget(oldWidget);
   }
 
   @override
@@ -125,6 +127,7 @@ class _NumericFormFieldState extends State<NumericFormField> {
         const AppliedTextIcon();
     final surfaceColors =
         Theme.of(context).extension<AppliedSurface>() ?? const AppliedSurface();
+    final isFilled = !widget.useOutlineStyling;
     final fillColor = surfaceColors.primary;
     final iconColor = textIconColours.primary;
     final textColor = textIconColours.emphasized;
@@ -165,88 +168,75 @@ class _NumericFormFieldState extends State<NumericFormField> {
     final errorBorder = widget.useOutlineStyling
         ? context.inputBorderError()
         : context.inputBorderUnderlineError;
-
     return TextFormField(
-      enabled: widget.enabled,
       controller: controller,
-      focusNode: widget.focusNode,
       style: textStyle,
-      cursorColor: textColor,
-      cursorErrorColor: errorColor,
+      enabled: widget.enabled,
       key: widget.key,
-      maxLength: widget.maxLength,
-      maxLengthEnforcement: widget.maxLengthEnforced
-          ? MaxLengthEnforcement.enforced
-          : MaxLengthEnforcement.none,
+      focusNode: widget.focusNode,
       textAlign: TextAlign.end,
       decoration: InputDecoration(
+        filled: isFilled,
+        fillColor: fillColor,
         border: border,
         enabledBorder: enabledBorder,
         focusedBorder: focussedBorder,
         disabledBorder: disabledBorder,
         errorBorder: errorBorder,
-        isDense: widget.isDense,
-        fillColor: fillColor,
-        filled: true,
-        errorStyle: errorStyle,
-        prefixIconColor: iconColor,
-        suffixIconColor: iconColor,
-        suffixIcon: (widget.suffixIcon != null
-            ? Icon(widget.suffixIcon)
-            : null),
-        prefixIcon: (widget.prefixIcon != null
-            ? Icon(widget.prefixIcon)
-            : null),
         labelStyle: labelStyle,
+        errorStyle: errorStyle,
+
+        suffixIconColor: iconColor,
+        suffixIcon: widget.suffixIcon != null ? Icon(widget.suffixIcon) : null,
+        prefixIconColor: iconColor,
+        prefixIcon: widget.prefixIcon != null ? Icon(widget.prefixIcon) : null,
         labelText: widget.isRequired
             ? '${widget.labelText} *'
             : widget.labelText,
         alignLabelWithHint: true,
-        hintText: widget.hintText,
         hintStyle: hintStyle,
-        counter: !widget.showTextLengthCounter ? const Offstage() : null,
+        hintText: widget.hintText,
       ),
       enableInteractiveSelection: true,
       inputFormatters: [
-        FilteringTextInputFormatter.deny(RegExp('[^0-9]')),
+        FilteringTextInputFormatter.allow(RegExp(r'[0-9\.]')),
         MaxNumberLimiter(),
+        _DotLimiter(),
+
+        // FilteringTextInputFormatter.allow(
+        //   RegExp("[\\d]"),
+        // ),
       ],
       keyboardType: TextInputType.number,
       textInputAction: widget.inputAction,
+      onChanged: (value) {
+        if (widget.onChanged != null) {
+          if (value.contains('.')) {
+            if (value.split('.')[1].length > 2) {
+              controller.text = formatDecimal(value).toString();
+            }
+          }
+          widget.onChanged!(formatDecimal(value) ?? 0);
+        }
+      },
       onFieldSubmitted: (value) {
         if (null != widget.onFieldSubmitted && validateValue(value)) {
-          widget.onFieldSubmitted!(int.parse(value));
-
+          controller.text = formatDecimalString(value);
+          widget.onFieldSubmitted!(formatDecimal(formatDecimalString(value))!);
           if (widget.nextFocusNode != null) {
             FocusScope.of(context).requestFocus(widget.nextFocusNode);
           }
         }
       },
-      onChanged: (value) {
-        int valueAsInt = int.tryParse(value) ?? 0;
-        if (widget.onChanged != null) widget.onChanged!(valueAsInt);
-      },
       validator: (value) {
-        int val = int.tryParse(value ?? '') ?? 0;
-
-        if (val == 0 && widget.isRequired) {
-          return widget.validationErrorMessage ??
-              'Please enter a valid value for ${widget.labelText}';
-        }
-
         if (!validateValue(value)) {
           return 'Please enter a valid value for ${widget.labelText}';
         }
-
-        if (widget.validator != null) {
-          return widget.validator!(val);
-        }
-
         return null;
       },
       onSaved: (value) {
         if (validateValue(value)) {
-          widget.onSaveValue(int.parse(value!));
+          widget.onSaveValue(double.parse(value!));
         }
       },
     );
@@ -255,11 +245,40 @@ class _NumericFormFieldState extends State<NumericFormField> {
   bool validateValue(String? value) {
     if (value == null || value.isEmpty) return false;
 
-    //here we need to define the pattern
-    var regexPattern = '[\\d]';
+    var regexPattern = '[\\d.]';
 
     RegExp expression = RegExp(regexPattern);
     return expression.hasMatch(value);
+  }
+}
+
+double? formatDecimal(String text) {
+  double? value = double.tryParse(text);
+  return value?.truncateToDecimalPlaces(2);
+}
+
+String formatDecimalString(String text) {
+  if (text.contains('.')) {
+    int diff = 2 - text.split('.')[1].length;
+    text = text.padRight(text.length + diff, '0');
+  } else {
+    text = '$text.00';
+  }
+  return text;
+}
+
+class _DotLimiter extends TextInputFormatter {
+  @override
+  TextEditingValue formatEditUpdate(
+    TextEditingValue oldValue,
+    TextEditingValue newValue,
+  ) {
+    if (newValue.text.contains('.') &&
+        oldValue.text != newValue.text &&
+        newValue.text.split('.').length > 2) {
+      return oldValue;
+    }
+    return newValue;
   }
 }
 
@@ -271,7 +290,9 @@ class MaxNumberLimiter extends TextInputFormatter {
     TextEditingValue newValue,
   ) {
     try {
-      return int.parse(newValue.text) > maxNumber ? oldValue : newValue;
+      return double.parse(newValue.text).round() > maxNumber
+          ? oldValue
+          : newValue;
     } on Exception catch (_) {
       return newValue;
     }

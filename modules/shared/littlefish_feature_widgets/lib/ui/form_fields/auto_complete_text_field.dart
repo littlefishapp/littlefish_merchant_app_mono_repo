@@ -4,7 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../cards/card_neutral.dart';
+import '../../../../../widgets/littlefish_feature_widgets/lib/ui/cards/card_neutral.dart';
 
 typedef AutoCompleteOverlayItemBuilder<T> =
     Widget Function(BuildContext context, T suggestion);

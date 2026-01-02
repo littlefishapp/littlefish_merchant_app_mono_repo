@@ -6,7 +6,7 @@ import 'package:littlefish_merchant/common/presentaion/components/long_text.dart
 import 'package:littlefish_merchant/app/theme/typography.dart';
 import 'package:quiver/strings.dart';
 
-import '../../../../app/theme/applied_system/applied_text_icon.dart';
+import '../../../../../widgets/app/theme/applied_system/applied_text_icon.dart';
 
 class YesNoFormField extends StatefulWidget {
   final String labelText;

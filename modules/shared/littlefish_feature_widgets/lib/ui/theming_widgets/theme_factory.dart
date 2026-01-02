@@ -3,7 +3,7 @@ import 'package:littlefish_merchant/app/theme/lf_app_themes.dart';
 import 'package:littlefish_merchant/common/presentaion/components/dialogs/modal_builder_implementations/default_modal_builder/default_action_modal_builder.dart';
 import 'package:littlefish_merchant/common/presentaion/components/dialogs/services/modal_service.dart';
 
-import '../../injector.dart';
+import '../../../../../widgets/littlefish_feature_widgets/lib/injector.dart';
 import 'app_theme_data.dart';
 
 enum AppThemeType { none, light, dark }

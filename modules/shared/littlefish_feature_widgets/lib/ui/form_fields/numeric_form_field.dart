@@ -1,67 +1,85 @@
-// Flutter imports:
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:littlefish_merchant/app/app.dart';
 import 'package:littlefish_merchant/app/theme/typography.dart';
 import 'package:littlefish_merchant/common/presentaion/components/form_fields/form_field_config/form_field_config.dart';
 
-// Project imports:
-import 'package:littlefish_merchant/tools/textformatter.dart';
+import '../../../../../widgets/app/theme/applied_system/applied_surface.dart';
+import '../../../../../widgets/app/theme/applied_system/applied_text_icon.dart';
 
-import '../../../../app/theme/applied_system/applied_surface.dart';
-import '../../../../app/theme/applied_system/applied_text_icon.dart';
-
-class PercentageFormField extends StatefulWidget {
+class NumericFormField extends StatefulWidget {
   final String hintText, labelText;
-  final double? initialValue;
+  final String? validationErrorMessage;
+  final int? initialValue;
   final bool autoValidate;
-  final Function(double) onSaveValue;
-  final Function(double)? onFieldSubmitted;
+  final Function(int) onSaveValue;
+  final Function(int)? onFieldSubmitted;
+  final Function(int)? onChanged;
+
   final FocusNode? focusNode;
   final FocusNode? nextFocusNode;
+  final int? maxLength;
+  final bool maxLengthEnforced;
   final TextInputAction inputAction;
   final IconData? suffixIcon;
   final IconData? prefixIcon;
-  final bool isRequired;
-  final bool useOutlineStyling;
-  final TextEditingController? controller;
-
   final bool enabled;
+  final bool isRequired;
+  final Color? color;
+  final TextEditingController? controller;
+  final bool useOutlineStyling;
+  final TextStyle? hintStyle;
+  final TextStyle? textStyle;
+  final TextStyle? labelStyle;
+  final bool showTextLengthCounter;
+  final bool isDense;
 
-  const PercentageFormField({
+  final FormFieldValidator<int>? validator;
+
+  const NumericFormField({
     required Key key,
     required this.onSaveValue,
     required this.hintText,
     required this.labelText,
-    this.inputAction = TextInputAction.next,
+    this.validationErrorMessage,
     this.isRequired = false,
-    this.focusNode,
-    this.nextFocusNode,
-    this.controller,
+    this.inputAction = TextInputAction.done,
     this.suffixIcon,
     this.prefixIcon,
     this.onFieldSubmitted,
+    this.onChanged,
+    this.focusNode,
+    this.nextFocusNode,
     this.autoValidate = false,
     this.initialValue,
     this.enabled = true,
+    this.color,
+    this.validator,
+    this.controller,
+    this.isDense = false,
+    this.maxLength,
+    this.maxLengthEnforced = false,
+    this.showTextLengthCounter = true,
     this.useOutlineStyling = false,
+    this.hintStyle,
+    this.textStyle,
+    this.labelStyle,
   }) : super(key: key);
 
   @override
-  State<PercentageFormField> createState() => _PercentageFormFieldState();
+  State<NumericFormField> createState() => _NumericFormFieldState();
 }
 
-class _PercentageFormFieldState extends State<PercentageFormField> {
-  String? displayValue;
-  String? fieldValue;
-  TextEditingController? _controller;
+class _NumericFormFieldState extends State<NumericFormField> {
+  late int initialValue;
+  late TextEditingController controller;
   FocusNode? _focusNode;
 
   @override
   void initState() {
-    _controller = widget.controller ?? TextEditingController();
-    displayValue = (widget.initialValue ?? '').toString();
-    _controller?.text = displayValue ?? '';
+    controller = widget.controller ?? TextEditingController();
+    initialValue = widget.initialValue ?? 0;
+    controller.text = initialValue.toString();
     _focusNode = widget.focusNode ?? FocusNode();
     _focusNode?.addListener(_handleFocusChange);
     super.initState();
@@ -69,20 +87,35 @@ class _PercentageFormFieldState extends State<PercentageFormField> {
 
   @override
   void dispose() {
-    _controller?.dispose();
+    controller.dispose();
     _focusNode!.removeListener(_handleFocusChange);
     _focusNode!.dispose();
     super.dispose();
   }
 
   void _handleFocusChange() {
-    if (!(_focusNode?.hasFocus ?? true)) {
-      if (null != widget.onFieldSubmitted) {
-        if (validateValue(_controller?.text)) {
-          widget.onFieldSubmitted!(double.parse(_controller?.text ?? '0'));
-        }
+    if (!_focusNode!.hasFocus) {
+      if (null != widget.onFieldSubmitted && validateValue(controller.text)) {
+        widget.onFieldSubmitted!(int.parse(controller.text));
       }
     }
+  }
+
+  @override
+  void didUpdateWidget(NumericFormField oldWidget) {
+    if (widget.controller != null &&
+        (widget.controller != oldWidget.controller)) {
+      controller = widget.controller ?? TextEditingController();
+    }
+
+    if (widget.initialValue != oldWidget.initialValue) {
+      controller = TextEditingController(text: widget.initialValue.toString());
+    }
+
+    if (oldWidget.controller == null) {
+      return;
+    }
+    super.didUpdateWidget(oldWidget);
   }
 
   @override
@@ -135,25 +168,29 @@ class _PercentageFormFieldState extends State<PercentageFormField> {
 
     return TextFormField(
       enabled: widget.enabled,
+      controller: controller,
       focusNode: widget.focusNode,
       style: textStyle,
       cursorColor: textColor,
       cursorErrorColor: errorColor,
-      strutStyle: StrutStyle.fromTextStyle(textStyle),
       key: widget.key,
-      initialValue: displayValue,
+      maxLength: widget.maxLength,
+      maxLengthEnforcement: widget.maxLengthEnforced
+          ? MaxLengthEnforcement.enforced
+          : MaxLengthEnforcement.none,
+      textAlign: TextAlign.end,
       decoration: InputDecoration(
         border: border,
         enabledBorder: enabledBorder,
         focusedBorder: focussedBorder,
         disabledBorder: disabledBorder,
         errorBorder: errorBorder,
-        isDense: true,
-        filled: true,
+        isDense: widget.isDense,
         fillColor: fillColor,
+        filled: true,
         errorStyle: errorStyle,
-        suffixIconColor: iconColor,
         prefixIconColor: iconColor,
+        suffixIconColor: iconColor,
         suffixIcon: (widget.suffixIcon != null
             ? Icon(widget.suffixIcon)
             : null),
@@ -165,75 +202,78 @@ class _PercentageFormFieldState extends State<PercentageFormField> {
             ? '${widget.labelText} *'
             : widget.labelText,
         alignLabelWithHint: true,
-        hintStyle: hintStyle,
         hintText: widget.hintText,
+        hintStyle: hintStyle,
+        counter: !widget.showTextLengthCounter ? const Offstage() : null,
       ),
       enableInteractiveSelection: true,
       inputFormatters: [
-        FilteringTextInputFormatter.deny(RegExp('[a-zA-z]')),
-        FilteringTextInputFormatter.deny(RegExp('\\s')),
-        FilteringTextInputFormatter.allow(RegExp('[\\d.]')),
+        FilteringTextInputFormatter.deny(RegExp('[^0-9]')),
+        MaxNumberLimiter(),
       ],
       keyboardType: TextInputType.number,
       textInputAction: widget.inputAction,
       onFieldSubmitted: (value) {
-        fieldValue = value;
-        if (null != widget.onFieldSubmitted) {
-          widget.onFieldSubmitted!(double.parse(value));
+        if (null != widget.onFieldSubmitted && validateValue(value)) {
+          widget.onFieldSubmitted!(int.parse(value));
 
           if (widget.nextFocusNode != null) {
             FocusScope.of(context).requestFocus(widget.nextFocusNode);
           }
         }
       },
+      onChanged: (value) {
+        int valueAsInt = int.tryParse(value) ?? 0;
+        if (widget.onChanged != null) widget.onChanged!(valueAsInt);
+      },
       validator: (value) {
-        fieldValue = value;
+        int val = int.tryParse(value ?? '') ?? 0;
+
+        if (val == 0 && widget.isRequired) {
+          return widget.validationErrorMessage ??
+              'Please enter a valid value for ${widget.labelText}';
+        }
 
         if (!validateValue(value)) {
           return 'Please enter a valid value for ${widget.labelText}';
         }
 
-        var thisValue = double.parse(value!);
-
-        if (thisValue > 100) {
-          return 'Amount cannot be greater than 100';
-        } else if (thisValue <= 0) {
-          return 'Amount must be greater than 0';
-        } else {
-          return null;
+        if (widget.validator != null) {
+          return widget.validator!(val);
         }
+
+        return null;
       },
       onSaved: (value) {
-        //we must validate the amount first as it should never save a bad amount.
         if (validateValue(value)) {
-          widget.onSaveValue(double.parse(value!));
+          widget.onSaveValue(int.parse(value!));
         }
       },
     );
   }
 
   bool validateValue(String? value) {
-    if ((value == null || value.isEmpty) && widget.isRequired) return false;
+    if (value == null || value.isEmpty) return false;
 
     //here we need to define the pattern
-    var regexPattern = '[\\d.]';
+    var regexPattern = '[\\d]';
 
     RegExp expression = RegExp(regexPattern);
-    var isValid = expression.hasMatch(value!);
-
-    if (isValid && widget.isRequired) return double.parse(value) > 0;
-    return isValid;
+    return expression.hasMatch(value);
   }
+}
 
-  String? getDisplayValue(String value) {
-    if (validateValue(value)) {
-      var parsedValue = double.tryParse(value);
-      displayValue = TextFormatter.toStringCurrency(
-        parsedValue,
-        currencyCode: '',
-      );
-      return displayValue;
+class MaxNumberLimiter extends TextInputFormatter {
+  int maxNumber = 50000000;
+  @override
+  TextEditingValue formatEditUpdate(
+    TextEditingValue oldValue,
+    TextEditingValue newValue,
+  ) {
+    try {
+      return int.parse(newValue.text) > maxNumber ? oldValue : newValue;
+    } on Exception catch (_) {
+      return newValue;
     }
-    return value;
   }
 }

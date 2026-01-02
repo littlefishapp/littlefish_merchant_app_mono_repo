@@ -8,9 +8,9 @@ import 'package:littlefish_merchant/models/enums.dart' as model_form_field;
 
 import 'package:quiver/strings.dart';
 
-import '../../../../app/theme/applied_system/applied_surface.dart';
-import '../../../../app/theme/applied_system/applied_text_icon.dart';
-import '../app_progress_indicator.dart';
+import '../../../../../widgets/app/theme/applied_system/applied_surface.dart';
+import '../../../../../widgets/app/theme/applied_system/applied_text_icon.dart';
+import '../../../../../widgets/littlefish_feature_widgets/lib/ui/app_progress_indicator.dart';
 
 enum FieldType { string, number }
 

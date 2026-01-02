@@ -8,7 +8,7 @@ import 'package:littlefish_merchant/app/theme/app_bar_data_set.dart';
 import 'package:littlefish_merchant/app/theme/app_colours.dart';
 import 'package:littlefish_merchant/app/theme/typography_data.dart';
 
-import '../../injector.dart';
+import '../../../../../widgets/littlefish_feature_widgets/lib/injector.dart';
 import 'app_theme_data.dart';
 import 'typography_data_set.dart';
 

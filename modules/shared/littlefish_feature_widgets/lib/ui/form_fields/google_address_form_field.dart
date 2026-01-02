@@ -14,9 +14,9 @@ import 'package:littlefish_merchant/common/presentaion/components/form_fields/fo
 import 'package:littlefish_merchant/providers/locale_provider.dart';
 import 'package:littlefish_merchant/ui/online_store/common/config.dart';
 
-import '../../../../app/theme/applied_system/applied_surface.dart';
-import '../../../../app/theme/applied_system/applied_text_icon.dart';
-import '../../../../features/ecommerce_shared/models/store/store.dart';
+import '../../../../../widgets/app/theme/applied_system/applied_surface.dart';
+import '../../../../../widgets/app/theme/applied_system/applied_text_icon.dart';
+import '../../../../../widgets/features/ecommerce_shared/models/store/store.dart';
 
 class GoogleAddressFormField extends StatefulWidget {
   final String? hintText, labelText, initialValue;

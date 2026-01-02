@@ -20,8 +20,8 @@ import 'package:littlefish_merchant/tools/helpers.dart';
 import 'package:littlefish_merchant/common/presentaion/components/dialogs/common_dialogs.dart';
 import 'package:littlefish_merchant/common/presentaion/pages/popup_forms/barcode_popup_form.dart';
 
-import '../../../../app/theme/applied_system/applied_surface.dart';
-import '../../../../app/theme/applied_system/applied_text_icon.dart';
+import '../../../../../widgets/app/theme/applied_system/applied_surface.dart';
+import '../../../../../widgets/app/theme/applied_system/applied_text_icon.dart';
 
 class BarcodeFormField extends StatefulWidget {
   final String? hintText, labelText, initialValue;

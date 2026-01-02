@@ -11,8 +11,8 @@ import 'package:littlefish_merchant/common/presentaion/components/form_helpers/m
 import 'package:littlefish_merchant/common/presentaion/components/form_helpers/money_formatter_output.dart';
 import 'package:littlefish_merchant/common/presentaion/components/custom_keypad.dart';
 
-import '../../../../app/theme/applied_system/applied_surface.dart';
-import '../../../../app/theme/applied_system/applied_text_icon.dart';
+import '../../../../../widgets/app/theme/applied_system/applied_surface.dart';
+import '../../../../../widgets/app/theme/applied_system/applied_text_icon.dart';
 
 /// Instance of [MoneyTextFormField] widget
 class MoneyTextFormField extends StatefulWidget {

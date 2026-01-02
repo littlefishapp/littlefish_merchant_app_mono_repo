@@ -4,7 +4,7 @@ import 'package:littlefish_merchant/app/theme/applied_system/applied_text_icon.d
 import 'package:littlefish_merchant/app/theme/typography_data.dart';
 import 'package:littlefish_merchant/app/theme/typography_data_set.dart';
 
-import '../../injector.dart';
+import '../../../../../widgets/littlefish_feature_widgets/lib/injector.dart';
 import 'applied_system/applied_border.dart';
 
 extension BuildContextEntension on BuildContext {
