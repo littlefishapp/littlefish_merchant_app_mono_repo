@@ -18,6 +18,8 @@ dependencies:
 
   # Littlefish core dependencies
   littlefish_core: ^4.2.0
+  littlefish_core_utils:
+    path: ../../../littlefish_core_mono_repo/packages/utils/littlefish_core_utils
 
 dev_dependencies:
   flutter_test:

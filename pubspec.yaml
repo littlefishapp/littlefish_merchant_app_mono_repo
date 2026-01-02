@@ -20,10 +20,22 @@ dev_dependencies:
 
 workspace:
   - merchant_app
+  # Existing feature packages
   - features/products/littlefish_feature_products
   - features/security/littlefish_feature_security
   - features/checkout/littlefish_feature_checkout
   - features/widgets/littlefish_feature_widgets
+  # New feature packages
+  - features/business/littlefish_feature_business
+  - features/customers/littlefish_feature_customers
+  - features/inventory/littlefish_feature_inventory
+  - features/sales/littlefish_feature_sales
+  - features/promotions/littlefish_feature_promotions
+  - features/suppliers/littlefish_feature_suppliers
+  - features/payments/littlefish_feature_payments
+  - features/finance/littlefish_feature_finance
+  - features/reports/littlefish_feature_reports
+  - features/devices/littlefish_feature_devices
 
 
 melos:
