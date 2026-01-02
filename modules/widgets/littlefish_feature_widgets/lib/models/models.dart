@@ -1,10 +1,8 @@
-/// Models exports for the widgets feature.
+/// Models exports for widgets feature.
 ///
-/// This barrel file exports all data models and entities
-/// related to widget functionality.
+/// This file exports all data models and entities.
+/// Re-exports shared models from littlefish_feature_models package.
 library;
 
-// Export models here
-// Example:
-// export 'theme_config.dart';
-// export 'button_style_config.dart';
+// Re-export shared models from shared models package
+export 'package:littlefish_feature_models/models/shared/shared.dart';

@@ -1,11 +1,9 @@
-/// Models exports for the products feature.
+/// Models exports for products feature.
 ///
-/// This barrel file exports all data models and entities
-/// related to product functionality.
+/// This file exports all data models and entities.
+/// Re-exports shared models from littlefish_feature_models package.
 library;
 
-// Export models here
-// Example:
-// export 'product.dart';
-// export 'product_category.dart';
-// export 'product_variant.dart';
+// Re-export product models from shared models package
+export 'package:littlefish_feature_models/models/products/products.dart';
+export 'package:littlefish_feature_models/models/stock/stock.dart';
