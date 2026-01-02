@@ -1,0 +1,29 @@
+name: littlefish_feature_checkout
+description: Checkout feature package for littlefish merchant app. Contains checkout-related business logic, UI components, and state management.
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: ">=3.8.0"
+resolution: workspace
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Redux state management
+  redux: 5.0.0
+  redux_thunk: 0.4.0
+  flutter_redux: 0.10.0
+
+  # Littlefish core dependencies
+  littlefish_core: ^4.2.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  mocktail: ^1.0.4
+
+flutter:
+  uses-material-design: true
