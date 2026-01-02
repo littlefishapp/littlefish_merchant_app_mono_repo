@@ -1,4 +1,6 @@
 /// Products models exports
 library;
 
-// Add product model exports here
+export 'product_combo.dart';
+export 'product_discount.dart';
+export 'product_modifier.dart';

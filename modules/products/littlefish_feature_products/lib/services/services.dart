@@ -4,7 +4,5 @@
 /// implementations for product functionality.
 library;
 
-// Export services here
-// Example:
-// export 'products_service.dart';
-// export 'products_repository.dart';
+export 'product_service.dart';
+export 'product_discount_service.dart';
