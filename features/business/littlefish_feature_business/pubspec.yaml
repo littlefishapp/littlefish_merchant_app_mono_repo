@@ -1,0 +1,31 @@
+name: littlefish_feature_business
+description: Business administration feature package for littlefish merchant app. Contains business profile, employees, settings, linked accounts, and configuration management.
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: ">=3.8.0"
+resolution: workspace
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Redux state management
+  redux: 5.0.0
+  redux_thunk: 0.4.0
+  flutter_redux: 0.10.0
+
+  # Littlefish core dependencies
+  littlefish_core: ^4.2.0
+  littlefish_core_utils:
+    path: ../../../littlefish_core_mono_repo/packages/utils/littlefish_core_utils
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  mocktail: ^1.0.4
+
+flutter:
+  uses-material-design: true
