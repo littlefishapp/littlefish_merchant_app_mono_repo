@@ -1,0 +1,253 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+    id "com.google.gms.google-services"
+    id "com.google.firebase.crashlytics"
+}
+
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
+    }
+}
+
+def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
+if (flutterVersionCode == null) {
+    flutterVersionCode = '1'
+}
+
+def flutterVersionName = localProperties.getProperty('flutter.versionName')
+if (flutterVersionName == null) {
+    flutterVersionName = '1.0'
+}
+
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = rootProject.file('key.properties')
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+
+def devkeystoreProperties = new Properties()
+def devkeystorePropertiesFile = rootProject.file('key.properties.dev')
+if (devkeystorePropertiesFile.exists()) {
+    devkeystoreProperties.load(new FileInputStream(devkeystorePropertiesFile))
+}
+
+
+def tpskeystoreProperties = new Properties()
+def tpskeystorePropertiesFile = rootProject.file('key.properties.tps')
+if (tpskeystorePropertiesFile.exists()) {
+    tpskeystoreProperties.load(new FileInputStream(tpskeystorePropertiesFile))
+}
+
+
+android {
+    println("#### TPS ")
+    lintOptions {
+        checkReleaseBuilds false
+    }
+    //ToDo(BRoberts): namespace needs to be corrected.
+    namespace "com.littlefish_merchant_app"
+    buildFeatures {
+        buildConfig = true
+    }
+    compileSdkVersion flutter.compileSdkVersion
+    ndkVersion flutter.ndkVersion
+    // buildToolseVersion flutter.buildToolsVersion
+
+    compileOptions {
+        // Flag to enable support for the new language APIs
+        coreLibraryDesugaringEnabled true
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_17
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+    
+    packagingOptions {
+        jniLibs {
+            useLegacyPackaging true
+        }
+    }
+
+    defaultConfig {
+        minSdkVersion 27
+        targetSdkVersion 34
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
+    }
+
+    signingConfigs {
+
+         tpscompdev {
+            keyAlias tpskeystoreProperties['tpscompdev']
+            keyPassword tpskeystoreProperties['keyPassword']
+            storeFile file(tpskeystoreProperties['storeFile'])
+            storePassword tpskeystoreProperties['storePassword']
+        }
+
+        tpsposdev {
+            keyAlias tpskeystoreProperties['tpsposdev']
+            keyPassword tpskeystoreProperties['keyPassword']
+            storeFile file(tpskeystoreProperties['storeFile'])
+          storePassword tpskeystoreProperties['storePassword']
+        }
+        tpspaxdev {
+            keyAlias tpskeystoreProperties['tpsposdev']
+            keyPassword tpskeystoreProperties['keyPassword']
+            storeFile file(tpskeystoreProperties['storeFile'])
+            storePassword tpskeystoreProperties['storePassword']
+        }
+    }
+
+    flavorDimensions "segment", "pos", "env"
+    productFlavors {
+
+        //------------------------ segment
+
+        tps {
+            dimension "segment"
+            applicationId "global.sassai.tpsone"
+            applicationIdSuffix ""
+            manifestPlaceholders = [appName: "TPSONE"]
+            resValue "string", "app_name", "TPS One"
+        }
+
+        //--------------------------- pos
+
+        pos {
+            dimension "pos"
+            applicationIdSuffix ".pax"
+            repositories {
+                maven {
+                    url "${project(':background_fetch').projectDir}/libs"
+                }
+            }
+            minSdkVersion 27
+        }
+
+        pax {
+            dimension "pos"
+            applicationIdSuffix ".pax"
+            repositories {
+                maven {
+                    url "${project(':background_fetch').projectDir}/libs"
+                }
+            }
+            minSdkVersion 27
+        }
+
+        comp {
+            dimension "pos"
+            applicationIdSuffix ".android"
+        }   //applicationIdSuffix ""
+
+        //------------------------- env
+
+        // prod {
+        //     dimension "env"
+        //     applicationIdSuffix ""
+        //     manifestPlaceholders = [appName: "littlefish App"]
+        // }
+
+        dev {
+            dimension "env"
+            applicationIdSuffix ".dev"
+            manifestPlaceholders = [appName: "[DEV] littlefish App"]
+        }
+
+        // uat {
+        //     dimension "env"
+        //     applicationIdSuffix ".uat"
+        //     manifestPlaceholders = [appName: "[UAT] littlefish App"]
+        // }
+    }
+
+
+
+
+    buildTypes {
+        release {
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'tps-proguard-rules.pro'
+        }
+        debug {
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'tps-proguard-rules.pro'
+        }
+        profile {
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'tps-proguard-rules.pro'
+        }
+    }
+
+
+
+    androidComponents {
+        onVariants(selector().all(), { variant ->
+            if (variant.name.contains("tps") ) {
+                println("#### Manage variant ${variant.name} -> ")
+                manageVariants(variant, tpskeystoreProperties, signingConfigs);
+            } else {
+                // println("#### ${variant.name} not selected for signing ")
+            }
+        })
+    }
+}
+
+flutter {
+    source '../..'
+}
+
+def manageVariants(Object variant, Object keystore, Object signingConfigs) {
+    String[] parts = variant.name.contains("Release") ? variant.name.split("Release", 2) : variant.name.split("Debug", 2);
+    
+    String part0 = parts[0].toLowerCase();
+    String[] configs = signingConfigs;
+    configs.each{ item -> 
+         
+            def val = item.find(part0)
+            if (val != null) {
+              // println("#### SigningConfig  $val found and signing config set")
+              variant.signingConfig?.setConfig(signingConfigs[val])
+            } 
+        
+    }
+    
+}
+
+
+dependencies {
+    implementation 'com.google.firebase:firebase-crashlytics:18.0.1'  // This version is compatible with newer Kotlin
+    implementation 'com.google.firebase:firebase-analytics:18.0.0'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.4'
+    implementation files('libs/tpsservicelib_3.18.aar')
+    
+    // Keep appcompat at 1.6.1 since 1.7.0 is causing dexing issues
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+}
+
+
+
+// https://github.com/flutter/flutter
+// Allow to dynamically depend on plugins based on current app flavor #80940
+// flavored_packages: ^0.0.2
+// Proposal to add flavor to pubspec.yaml https://github.com/flutter/flutter/issues/100813#top 
+
+// script to select a yaml https://gist.github.com/jj-hoeksema/c5a54a1cdd1da9ab7a3100c6b5797e05 
+// lib/
+// tools/
+// ---flavor_setup.dart
+// pubspec/
+// ---defaults.yaml
+// ---google.yaml
+// ---amazon.yam
+// pubspec.yaml

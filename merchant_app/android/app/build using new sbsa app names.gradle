@@ -1,0 +1,232 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+    id "com.google.gms.google-services"
+    id "com.google.firebase.crashlytics"
+}
+
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
+    }
+}
+
+def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
+if (flutterVersionCode == null) {
+    flutterVersionCode = '1'
+}
+
+def flutterVersionName = localProperties.getProperty('flutter.versionName')
+if (flutterVersionName == null) {
+    flutterVersionName = '1.0'
+}
+
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = rootProject.file('key.properties')
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+
+def devkeystoreProperties = new Properties()
+def devkeystorePropertiesFile = rootProject.file('key.properties.dev')
+if (devkeystorePropertiesFile.exists()) {
+    devkeystoreProperties.load(new FileInputStream(devkeystorePropertiesFile))
+}
+
+def lfkeystoreProperties = new Properties()
+def lfkeystorePropertiesFile = rootProject.file('key.properties.lf')
+if (lfkeystorePropertiesFile.exists()) {
+    lfkeystoreProperties.load(new FileInputStream(lfkeystorePropertiesFile))
+}
+
+def sbkeystoreProperties = new Properties()
+def sbkeystorePropertiesFile = rootProject.file('key.properties.sb')
+if (sbkeystorePropertiesFile.exists()) {
+    sbkeystoreProperties.load(new FileInputStream(sbkeystorePropertiesFile))
+}
+
+def absakeystoreProperties = new Properties()
+def absakeystorePropertiesFile = rootProject.file('key.properties.absa')
+if (absakeystorePropertiesFile.exists()) {
+    absakeystoreProperties.load(new FileInputStream(absakeystorePropertiesFile))
+}
+
+
+android {
+    namespace "com.example.littlefish_pos_ui"
+    compileSdkVersion flutter.compileSdkVersion
+    ndkVersion flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_17
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    defaultConfig {    
+        minSdkVersion = 28
+        targetSdkVersion flutter.targetSdkVersion
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
+    }
+
+    signingConfigs {
+        prod {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+        }
+        dev {
+            keyAlias devkeystoreProperties['keyAlias']
+            keyPassword devkeystoreProperties['keyPassword']
+            storeFile file(devkeystoreProperties['storeFile'])
+            storePassword devkeystoreProperties['storePassword']
+        }
+        lf {
+            keyAlias lfkeystoreProperties['keyAlias']
+            keyPassword lfkeystoreProperties['keyPassword']
+            storeFile file(lfkeystoreProperties['storeFile'])
+            storePassword lfkeystoreProperties['storePassword']
+        }
+        sb {
+            keyAlias sbkeystoreProperties['keyAlias']
+            keyPassword sbkeystoreProperties['keyPassword']
+            storeFile file(sbkeystoreProperties['storeFile'])
+            storePassword sbkeystoreProperties['storePassword']
+        }
+
+        ab {
+            keyAlias absakeystoreProperties['keyAlias']
+            keyPassword absakeystoreProperties['keyPassword']
+            storeFile file(absakeystoreProperties['storeFile'])
+            storePassword absakeystoreProperties['storePassword']
+        }
+
+    }
+
+    flavorDimensions "segment","pos", "env" 
+    productFlavors { 
+        prod {
+            dimension "env"
+            applicationIdSuffix ""
+            manifestPlaceholders = [appName: "littlefish App"]
+            //signingConfig signingConfigs.prod
+        }
+        dev {
+            dimension "env"
+            applicationIdSuffix ".dev"
+            manifestPlaceholders = [appName: "[DEV] littlefish App"]
+            signingConfig signingConfigs.dev
+        }
+        local {
+            dimension "env"
+            applicationIdSuffix ".local"
+            manifestPlaceholders = [appName: "[LCL] littlefish App"]
+            // signingConfig signingConfigs.dev
+        }
+
+        mpp {
+            dimension "pos"
+            applicationIdSuffix ".android"
+            repositories {
+                maven {
+                    url "${project(':background_fetch').projectDir}/libs"
+                }
+//                maven {
+//                url "${project(':littlefishpay_mypinpad_sdk').projectDir}/libs"
+//                }
+//                println("#### ${project(':littlefishpay_mypinpad_sdk').projectDir}/libs")
+            }
+        }
+        bpos {
+            dimension "pos"
+            applicationIdSuffix ".pax"
+            repositories {
+                maven {
+                    url "${project(':background_fetch').projectDir}/libs"
+                }
+            }
+            minSdkVersion = 27
+        }
+
+        lfpos {
+            dimension "pos"
+            applicationIdSuffix ".lfpos"
+        }
+        
+        
+        sbsa {
+            dimension "segment"
+            applicationId "com.standardbank"  
+            applicationIdSuffix ".simplyblu"
+            manifestPlaceholders = [appName: "SimplyBLU Mpp"]
+            productFlavors.sbsa.signingConfig signingConfigs.sb
+            resValue "string", "app_name", "SimplyBLU"
+        }
+        
+        lf {
+            dimension "segment"
+            applicationId "africa.nybble.littlefish_merchant"        
+            applicationIdSuffix ".lf"
+            manifestPlaceholders = [appName: "littlefish"]
+            productFlavors.lf.signingConfig signingConfigs.lf
+            resValue "string", "app_name", "littlefish"
+        }
+
+        absa {
+            dimension "segment"
+            applicationId "africa.nybble.littlefish_merchant"  
+            applicationIdSuffix ".absa"
+            manifestPlaceholders = [appName: "ABSA"]
+            productFlavors.sbsa.signingConfig signingConfigs.lf
+            resValue "string", "app_name", "littlefish"
+        }
+    }
+
+    buildTypes {
+        release {
+            // TODO: Add your own signing config for the release build.
+            // Signing with the debug keys for now, so `flutter run --release` works.
+            // signingConfig signingConfigs.debug
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'pos-proguard-rules.pro'
+        }
+        debug {
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'pos-proguard-rules.pro'
+        }
+        debug {}
+    }
+}
+
+flutter {
+    source '../..'
+}
+
+
+
+dependencies {}
+
+// https://github.com/flutter/flutter
+// Allow to dynamically depend on plugins based on current app flavor #80940
+// flavored_packages: ^0.0.2
+// Proposal to add flavor to pubspec.yaml https://github.com/flutter/flutter/issues/100813#top 
+
+// script to select a yaml https://gist.github.com/jj-hoeksema/c5a54a1cdd1da9ab7a3100c6b5797e05 
+// lib/
+// tools/
+// ---flavor_setup.dart
+// pubspec/
+// ---defaults.yaml
+// ---google.yaml
+// ---amazon.yam
+// pubspec.yaml

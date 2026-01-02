@@ -1,0 +1,189 @@
+{
+  "app_name": "pos",
+  "modules": [
+    {
+      "name": "base_settings",
+      "premium_routes": [
+        {
+          "name": "settings/ticket",
+          "enabled": true
+        },
+        {
+          "name": "business/credit-settings",
+          "enabled": true
+        },
+        {
+          "name": "business/linked-accounts",
+          "enabled": true
+        },
+        {
+          "name": "hardware/printers",
+          "enabled": true
+        },
+        {
+          "name": "hardware/barcode-scanners",
+          "enabled": true
+        },
+        {
+          "name": "business/manage-credit",
+          "enabled": true
+        },
+        {
+          "name": "business/online-store-router",
+          "enabled": true
+        },
+        {
+          "name": "business/create-online-store",
+          "enabled": true
+        },
+        {
+          "name": "business/manage-online-store",
+          "enabled": true
+        }
+      ],
+      "premium_actions": [
+        {
+          "name": "email_receipt",
+          "enabled": true
+        },
+        {
+          "name": "sms_receipt",
+          "enabled": true
+        },
+        {
+          "name": "favorites",
+          "enabled": true
+        },
+        {
+          "name": "setup_hardware",
+          "enabled": true
+        },
+        {
+          "name": "load_ticket",
+          "enabled": true
+        },
+        {
+          "name": "store_credit",
+          "enabled": true
+        },
+        {
+          "name": "zapper",
+          "enabled": true
+        },
+        {
+          "name": "snapscan",
+          "enabled": true
+        },
+        {
+          "name": "combo",
+          "enabled": true
+        },
+        {
+          "name": "credit",
+          "enabled": true
+        },
+        {
+          "name": "online_store",
+          "enabled": true
+        },
+        {
+          "name": "contact_us",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "name": "reporting",
+      "premium_routes": [
+        {
+          "name": "reports/customer-statement",
+          "enabled": false
+        },
+        {
+          "name": "report/customer-statement",
+          "enabled": false
+        },
+        {
+          "name": "reports/sales-by-product",
+          "enabled": false
+        },
+        {
+          "name": "reports/customer-statement",
+          "enabled": false
+        },
+        {
+          "name": "report/product",
+          "enabled": false
+        },
+        {
+          "name": "report/financial-statement",
+          "enabled": false
+        },
+        {
+          "name": "report/inventory-report",
+          "enabled": false
+        },
+        {
+          "name": "report/storecredit-report",
+          "enabled": true
+        }
+      ],
+      "premium_actions": [
+        {
+          "name": "report_day",
+          "enabled": false
+        },
+        {
+          "name": "report_week",
+          "enabled": true
+        },
+        {
+          "name": "report_month",
+          "enabled": true
+        },
+        {
+          "name": "report_3_month",
+          "enabled": true
+        },
+        {
+          "name": "report_year",
+          "enabled": true
+        },
+        {
+          "name": "report_custom",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "name": "product_management",
+      "premium_routes": [
+        {
+          "name": "item/combos",
+          "enabled": true
+        },
+        {
+          "name": "business/discounts",
+          "enabled": true
+        },
+        {
+          "name": "business/employees",
+          "enabled": true
+        },
+        {
+          "name": "business/system-users",
+          "enabled": true
+        },
+        {
+          "name": "business/suppliers",
+          "enabled": false
+        },
+        {
+          "name": "business/supplier-invoices",
+          "enabled": false
+        }
+      ],
+      "premium_actions": []
+    }
+  ]
+}

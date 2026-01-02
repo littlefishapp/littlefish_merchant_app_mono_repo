@@ -1,0 +1,68 @@
+import 'dart:convert';
+
+import 'package:flutter/foundation.dart';
+import 'package:injectable/injectable.dart';
+import 'package:littlefish_core/configuration/config_service.dart';
+import 'package:littlefish_core/core/littlefish_core.dart';
+import 'package:littlefish_core/hardware/printers/drivers/pos_printer.dart';
+import 'package:littlefish_core/hardware/scanners/littlefish_scanner.dart';
+import 'package:littlefish_merchant/app/app.dart';
+import 'package:littlefish_merchant/features/linked_devices/presentation/utils/terminal_helper.dart';
+import 'package:littlefish_merchant/features/multi_cart_item_infrared_barcode_scanner/data/multi_item_infrared_barcode_scanner.dart';
+import 'package:littlefish_merchant/features/multi_cart_item_infrared_barcode_scanner/presentation/viewmodel/pos_multi_barcode_scanner_vm.dart';
+import 'package:littlefish_merchant/injector.dart';
+import 'package:littlefish_merchant/tools/security/app_security_validation.dart';
+import 'package:littlefish_payments/gateways/pos_payment_gateway.dart';
+import 'package:littlefish_payments/gateways/softpos_payment_gateway.dart';
+import 'package:littlefish_payments/managers/terminal_manager.dart';
+import 'package:littlefish_payments/models/shared/payment_provider.dart';
+import 'package:littlefish_payments_softpos_wizzit/models/wizzit_provider_settings.dart';
+import 'package:littlefish_payments_softpos_wizzit/wizzit_payment_gateway.dart';
+
+//WIZZIT PAYMENT INJECTOR
+class PaymentsInjector {
+  static Future<CardPaymentRegistered> inject() async {
+    bool hasNFC = await AppSecurityValidation().hasNfc();
+    if (hasNFC != true) {
+      return CardPaymentRegistered.none;
+    }
+    LittleFishCore core = LittleFishCore.instance;
+
+    ConfigService configService = core.get<ConfigService>();
+
+    CardPaymentRegistered result = CardPaymentRegistered.pos;
+
+    final package = await TerminalManager.getPackageInformation();
+
+    String env = 'wizzit_${isProd ? 'prod' : 'dev'}_ ${isSBSA ? 'sbsa': isABSA ? 'absa' : 'lf'}';
+
+    WizzitPaymentGateway wizzitPaymentGateway = WizzitPaymentGateway(package);
+
+    dynamic softposSettings = configService.getObjectValue(
+      key: 'config_wizzit_settings',
+      defaultValue: {'key': 'value'},
+    );
+    WizzitProviderSettings? wizzitProviderSettings =
+        WizzitProviderSettings.fromJson(softposSettings); 
+    wizzitProviderSettings = wizzitProviderSettings.copyWith(
+      applicationId: await TerminalHelper().getFirebaseMobileAppId(),
+      environment: env,
+    );   
+      
+    AppVariables.hasPrinterInitialized = true;
+    AppVariables.hasScannerInitialized = true;
+
+    await wizzitPaymentGateway.initialise(settings: wizzitProviderSettings);
+    AppVariables.canPrintMerchantAndCustomerCopy = false;
+
+    result = CardPaymentRegistered.pos;
+
+    core.registerLazyService<SoftPOSPaymentGateway>(
+      () => wizzitPaymentGateway,
+    );
+
+    cardPaymentRegistered = result;
+
+    return result;
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "images" : [
+    {
+      "filename" : "sbsa_new_ic_launcher 1024.png",
+      "idiom" : "universal",
+      "platform" : "ios",
+      "size" : "1024x1024"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

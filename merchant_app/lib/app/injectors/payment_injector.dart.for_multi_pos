@@ -1,0 +1,61 @@
+import 'package:flutter/foundation.dart';
+import 'package:littlefish_core/core/littlefish_core.dart';
+import 'package:littlefish_core/hardware/printers/drivers/pos_printer.dart';
+import 'package:littlefish_core/hardware/scanners/littlefish_scanner.dart';
+import 'package:littlefish_core/logging/services/logger_service.dart';
+import 'package:littlefish_merchant/app/app.dart';
+import 'package:littlefish_merchant/injector.dart';
+import 'package:littlefish_payments/gateways/pos_payment_gateway.dart';
+import 'package:littlefish_payments/managers/terminal_manager.dart';
+import 'package:littlefish_payments/models/shared/payment_provider.dart';
+import 'package:littlefish_payments_pos_fnb/littlefish_payments_pos_fnb.dart';
+
+//FNB MULTI POS
+class PaymentsInjector {
+  static Future<CardPaymentRegistered> inject() async {
+    LittleFishCore core = LittleFishCore.instance;
+
+    LoggerService _logger = core.get<LoggerService>();
+
+    CardPaymentRegistered result = CardPaymentRegistered.pos;
+
+    final package = await TerminalManager.getPackageInformation();
+
+    // FnbPosPaymentGateway posPaymentGateway =
+    //     await FnbPosPaymentGateway.createFromIp(package, '192.168.23.97');
+
+    FnbPosPaymentGateway posPaymentGateway =
+        await FnbPosPaymentGateway.create(package);
+
+    result = CardPaymentRegistered.pos;
+
+    AppVariables.canPrintMerchantAndCustomerCopy = false;
+
+    core.registerLazyService<POSPaymentGateway>(
+      () => posPaymentGateway,
+    );
+
+    cardPaymentRegistered = result;
+
+    posPaymentGateway.getPOSPrinter().then((value) {
+      AppVariables.hasPrinter = true;
+      AppVariables.hasPrinterInitialized = true;
+      core.registerLazyService<POSPrinter>(() => value);
+    }).catchError((e) {
+      //ToDo: we need to move the app into an error state, so that it can restart this process.
+      _logger.error(
+        'payment_injector',
+        'Error getting printer',
+        error: e,
+      );
+      debugPrint('Error getting printer: $e');
+    });
+
+    // For FNB, we should not register the scanner.
+    // Otherwise the laser scanner checks will be inconsistent, also, their camera barcode scanner does not support multi-scan
+
+    AppVariables.providerActions = posPaymentGateway.getSupportedActions();
+
+    return result;
+  }
+}

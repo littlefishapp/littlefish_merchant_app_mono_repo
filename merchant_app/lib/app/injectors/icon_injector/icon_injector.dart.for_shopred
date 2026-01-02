@@ -1,0 +1,16 @@
+import 'package:littlefish_core/core/littlefish_core.dart';
+import 'package:littlefish_icons/core/icon_provider.dart';
+import 'package:littlefish_icons/providers/absa_icon_provider.dart';
+import 'package:littlefish_icons/littlefish_icons.dart';
+
+//ABSA ICON INJECTOR
+class IconInjector {
+  static Future<void> inject() async {
+    LittleFishCore core = LittleFishCore.instance;
+    var provider = AbsaIconProvider();
+
+    core.registerLazyService<IconProvider>(() => provider);
+
+    LittleFishIcons.setIconProvider(provider);
+  }
+}

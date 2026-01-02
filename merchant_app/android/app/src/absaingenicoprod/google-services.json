@@ -1,0 +1,86 @@
+{
+  "project_info": {
+    "project_number": "881218131008",
+    "project_id": "absa-prod-431807",
+    "storage_bucket": "absa-prod-431807.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:881218131008:android:1787a7de7446218493bba5",
+        "android_client_info": {
+          "package_name": "za.absa.shopred.android.prod"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBc2NkbK556-ATwxbF3_s981v23TFB890s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:881218131008:android:a8efe2f43bc6f1f493bba5",
+        "android_client_info": {
+          "package_name": "za.absa.shopred.ingenico.prod"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBc2NkbK556-ATwxbF3_s981v23TFB890s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:881218131008:android:b41bcd8eeec145a293bba5",
+        "android_client_info": {
+          "package_name": "za.absa.shopred.pax.prod"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBc2NkbK556-ATwxbF3_s981v23TFB890s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:881218131008:android:fac26ac527b9e13e93bba5",
+        "android_client_info": {
+          "package_name": "za.absa.shopred.verifone.prod"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBc2NkbK556-ATwxbF3_s981v23TFB890s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

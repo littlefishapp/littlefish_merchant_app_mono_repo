@@ -1,0 +1,9 @@
+storePassword=1QAZxsw23edcvfr4
+keyPassword=1QAZxsw23edcvfr4
+storeFile=../fnb_keystore.jks
+fnbcompdev=fnb_webstore_comp_dev
+fnbposdev=fnb_webstore_bpos_dev
+fnbcompprod=fnb_webstore_comp_prod
+fnbposprod=fnb_webstore_bpos_prod
+fnbingenicodev=fnb_webstore_ingenico_dev
+fnbingenicoprod=fnb_webstore_ingenico_prod

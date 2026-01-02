@@ -1,0 +1,8 @@
+{
+    "LAUNCHDARKLY_MOBILE_KEY": "mob-f6d1315c-1a97-4101-93c7-ab226cd097dd",
+    "USE_CASE": "absa",
+    "USE_MOCK_DATA": "use_mock_data",
+    "APP_ENVIRONMENT": "dev",
+    "LD_USER": "order3_dev",
+    "APP_NAME": "ShopRed"
+}

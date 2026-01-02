@@ -1,0 +1,16 @@
+storePassword=1QAZxsw23edcvfr4
+keyPassword=1QAZxsw23edcvfr4
+storeFile=../sbsa_keystore.jks
+sbsa_bpos_dev=sbsa_bpos_dev
+sbsabposprod=sbsabposprod
+sbsapaxprod=sbsapaxprod
+sbsabposdev=sbsabposdev
+sbsamppdev=sbsa_mpp_dev
+sblfsblfcompdev=sbsa_mpp_dev2
+sbsamppprod=sbsamppprod
+yellowtoastmppprod=yellowtoastmppprod
+yellowtoastmppdev=yellowtoastmppdev
+sbsaingenicodev=sbsaingenicodev
+sbsaingenicoprod=sbsaingenicoprod
+sbsaverifonedev=sbsaverifonedev
+sbsaverifoneprod=sbsaverifoneprod

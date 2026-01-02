@@ -1,0 +1,50 @@
+import 'package:flutter/material.dart';
+import 'package:littlefish_core/core/littlefish_core.dart';
+import 'package:littlefish_core/hardware/printers/drivers/pos_printer.dart';
+import 'package:littlefish_core/hardware/scanners/littlefish_scanner.dart';
+import 'package:littlefish_merchant/app/app.dart';
+import 'package:littlefish_merchant/injector.dart';
+import 'package:littlefish_payments/gateways/pos_payment_gateway.dart';
+import 'package:littlefish_payments/managers/terminal_manager.dart';
+import 'package:littlefish_payments_pos_tps/littlefish_payments_pos_tps.dart';
+
+//APP PAYMENTS INJECTOR
+class PaymentsInjector {
+  static Future<CardPaymentRegistered> inject() async {
+    LittleFishCore core = LittleFishCore.instance;
+
+    CardPaymentRegistered result = CardPaymentRegistered.pos;
+
+    final package = await TerminalManager.getPackageInformation();
+
+    TpsPosPaymentGateway tpsPosPaymentGateway =
+        TpsPosPaymentGateway(package);
+
+    await tpsPosPaymentGateway.initialise();
+
+    result = CardPaymentRegistered.pos;
+
+    core.registerLazyService<POSPaymentGateway>(
+      () => tpsPosPaymentGateway,
+    );
+
+    cardPaymentRegistered = result;
+
+    AppVariables.canPrintMerchantAndCustomerCopy = false;
+    AppVariables.hasScannerInitialized = true;
+
+
+    AppVariables.providerActions = tpsPosPaymentGateway.getSupportedActions();  
+
+    tpsPosPaymentGateway.getPOSPrinter().then((value) {
+      AppVariables.hasPrinter = true;
+      AppVariables.hasPrinterInitialized = true;
+      core.registerLazyService<POSPrinter>(() => value);
+    }).catchError((e) {
+      //ToDo: we need to move the app into an error state, so that it can restart this process.
+      debugPrint('Error getting printer: $e');
+    });
+
+    return result;
+  }
+}

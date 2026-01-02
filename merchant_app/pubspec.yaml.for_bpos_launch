@@ -1,0 +1,203 @@
+name: littlefish_merchant
+description: Transforming SME operations, forever
+version: 2.3.3+143-bpos
+publish_to: none
+
+environment:
+  sdk: ">=3.8.0"
+resolution: workspace
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  flutter_localizations:
+    sdk: flutter
+
+  #core depdenencies
+  #ALERT: DO NOT CHANGE UNLESS APPROVAL BY ARCHITECTURE FORUM
+  get_it: 8.2.0
+  # launchdarkly_flutter_client_sdk: 4.7.0
+
+  #app depdenendies
+  #ALERT: DO NOT CHANGE UNLESS APPROVAL BY ARCHITECTURE FORUM
+  redux: 5.0.0
+  redux_dev_tools: 0.7.0
+  redux_thunk: 0.4.0
+  flutter_redux: 0.10.0
+  flutter_redux_dev_tools: 0.5.2
+  downloadsfolder: 1.2.0
+
+  #firebase references
+  #ALERT: DO NOT CHANGE UNLESS APPROVAL BY ARCHITECTURE FORUM
+
+  firebase_analytics: 12.0.0
+  firebase_core: 4.0.0
+  firebase_remote_config: 6.0.0
+  firebase_storage: 13.0.0
+  firebase_core_platform_interface: 6.0.0 #ref ticket 13831
+
+  #littlefish dependencies
+  littlefish_core: ^4.2.0
+  littlefish_core_utils: ^4.2.3
+  littlefish_storage_firebase: ^4.0.1
+  littlefish_auth_firebase: ^4.1.1
+  littlefish_auth: ^1.0.0
+  littlefish_config_launchdarkly: ^4.0.1
+  littlefish_monitoring_firebase: ^4.0.1
+  littlefish_analytics_firebase: ^4.0.1
+  littlefish_observability_firebase: ^4.0.1
+  littlefish_interfaces: ^4.0.2
+  littlefish_reports: ^4.1.4
+  littlefish_payments: ^7.0.3
+  littlefish_payments_pos_bpos: ^8.0.1
+  littlefish_hardware_manager: ^4.0.1
+  littlefish_notifications_fcm: ^4.0.1
+  littlefish_icons: ^1.0.2
+
+  back_button_interceptor: 8.0.4
+  flutter_ringtone_player: ^4.0.0+4
+  flutter_google_places_sdk: 0.4.2
+  nfc_manager: 4.0.2
+  fast_contacts: 4.0.0
+  audioplayers: 5.2.1
+  async: 2.13.0
+  after_layout: 1.2.0
+  app_integrity_checker: 1.0.5
+  background_fetch: 1.4.0
+  built_value: 8.11.1
+  cached_network_image: 3.4.1
+  camera: 0.11.2
+  cloud_firestore: 6.0.0
+  collection: 1.19.1
+  connectivity_plus: 6.1.5
+  country_code_picker: 3.4.0
+  crypto: 3.0.6
+  dartz: 0.10.1
+  device_info_plus: 11.5.0
+  dio: 5.9.0
+  dio_brotli_transformer: 2.0.0
+  dropdown_button2: 2.3.9
+  equatable: 2.0.7
+  flutter_bloc: 9.1.1
+  flutter_chat_ui: 2.9.0
+  flutter_colorpicker: 1.1.0
+  flutter_esc_pos_utils: 1.0.1
+  flutter_google_places_hoc081098: 2.0.0
+  flutter_image_compress: 2.4.0
+  flutter_keyboard_visibility: 6.0.0
+  flutter_rating_bar: 4.0.1
+  flutter_rounded_date_picker: 3.0.4
+  flutter_slidable: 4.0.1
+  flutter_staggered_grid_view: 0.7.0
+  flutter_svg: 2.2.0
+  font_awesome_flutter: 10.10.0
+  geocoding: 4.0.0
+  #geoflutterfire2: 2.3.15
+  geolocator: 14.0.2
+  google_fonts: 6.3.0
+  google_mlkit_barcode_scanning: 0.14.1
+  google_sign_in: 7.1.1
+  grouped_list: 6.0.0
+  image_picker: 1.2.0
+  icofont_flutter: 1.4.0
+  injectable: 2.5.1
+  intl: 0.20.2
+  introduction_screen: 3.1.17
+  json_annotation: 4.9.0
+  keyboard_actions: 4.2.0
+  provider: 6.1.5
+  decimal: 3.2.4
+
+  loading_animation_widget: 1.3.0
+  localstorage: 6.0.0
+  material_design_icons_flutter: 7.0.7296
+  open_file: 3.5.10
+  package_info_plus: 8.3.1
+  path_provider: 2.1.5
+  percent_indicator: 4.2.5
+  permission_handler: 12.0.1
+  qr_flutter: 4.1.0
+  quiver: 3.2.2
+  sembast: 3.8.5
+  share_plus: 11.1.0
+  shared_preferences: 2.5.3
+  simple_rich_text: 2.0.49
+  skeletonizer: 2.1.0
+  sliding_up_panel: 2.0.0+1
+  syncfusion_flutter_charts: 30.2.6
+  syncfusion_flutter_core: 30.2.6
+  syncfusion_flutter_datagrid: 30.2.6
+  syncfusion_flutter_gauges: 30.2.6
+  syncfusion_flutter_pdfviewer: 30.2.6
+  syncfusion_localizations: 30.2.6
+  timeago: 3.7.1
+  url_launcher: 6.3.2
+  uuid: 4.5.1
+  webview_flutter: 4.13.0
+  whatsapp_unilink: 2.1.0
+  safe_device: 1.3.5
+  pointycastle: 4.0.0
+  flutter_secure_storage: 9.2.4
+
+dev_dependencies:
+  build_runner: 2.7.0
+  built_value_generator: 8.11.1
+  flutter_launcher_icons: 0.14.4
+  #very_good_analysis: 2.4.0
+  flutter_lints: 6.0.0
+  import_path_converter: 1.0.1
+  import_sorter: 4.6.0
+  injectable_generator: 2.8.1
+  json_serializable: 6.10.0
+  mocktail: 1.0.4
+
+dependency_override:
+provider: 6.1.2
+
+
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/locale/supported_locales.json
+    - assets/environment/
+    - assets/images/placeholders/
+    - assets/images/graphics/
+    - assets/logos/
+    - assets/tabs/
+    - assets/client_specific/
+    - assets/client_specific/images/
+    - assets/client_specific/icons/
+    - assets/client_specific/pdfs/
+    - assets/client_specific/logos/
+    - assets/images/flags/
+    - assets/images/intro/
+    - assets/icons/tabs/
+    - assets/icons/general/
+    - assets/icons/grid_view/
+    - assets/icons/payment/
+    - assets/icons/profile/
+    - assets/data/
+
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins/Poppins-Light.ttf
+        - asset: assets/fonts/Poppins/Poppins-BlackItalic.ttf
+          style: italic
+        - asset: assets/fonts/Poppins/Poppins-Bold.ttf
+          weight: 800
+    - family: Benton
+      fonts:
+        - asset: assets/fonts/Benton/BentonSans-Regular.otf
+          style: normal
+        - asset: assets/fonts/Benton/BentonSans-Bold.otf
+          weight: 800
+    - family: SF-Pro
+      fonts:
+        - asset: assets/fonts/SFPro/SFPRODISPLAYBOLD.otf
+        - asset: assets/fonts/SFPro/SFPRODISPLAYMEDIUM.otf
+        - asset: assets/fonts/SFPro/SFPRODISPLAYREGULAR.otf
+        - asset: assets/fonts/SFPro/SFPRODISPLAYTHINITALIC.otf
+          style: italic

@@ -1,0 +1,124 @@
+{
+  "project_info": {
+    "project_number": "833497090459",
+    "project_id": "fnb-dev-lf",
+    "storage_bucket": "fnb-dev-lf.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:833497090459:android:de199b58cb34244767393e",
+        "android_client_info": {
+          "package_name": "africa.fnb.android.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAL6fIKuMSA_pVe7Ozvc4ogx7XAUoQdrc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:833497090459:android:b7769b870b469e6d67393e",
+        "android_client_info": {
+          "package_name": "africa.fnb.ingenico.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAL6fIKuMSA_pVe7Ozvc4ogx7XAUoQdrc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:833497090459:android:7ca058d7d80b97d767393e",
+        "android_client_info": {
+          "package_name": "africa.fnb.pos.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAL6fIKuMSA_pVe7Ozvc4ogx7XAUoQdrc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:833497090459:android:25bb1f5b6a8a41b667393e",
+        "android_client_info": {
+          "package_name": "za.co.fnb.webstore.companion.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAL6fIKuMSA_pVe7Ozvc4ogx7XAUoQdrc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:833497090459:android:bd081163b770631967393e",
+        "android_client_info": {
+          "package_name": "za.co.fnb.webstore.ingenico.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAL6fIKuMSA_pVe7Ozvc4ogx7XAUoQdrc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:833497090459:android:834fdd6eaa5a910467393e",
+        "android_client_info": {
+          "package_name": "za.co.fnb.webstore.pos.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAL6fIKuMSA_pVe7Ozvc4ogx7XAUoQdrc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

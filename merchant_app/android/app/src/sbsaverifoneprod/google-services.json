@@ -1,0 +1,143 @@
+{
+  "project_info": {
+    "project_number": "255179915790",
+    "project_id": "lfappsbsaprod-21c2b108",
+    "storage_bucket": "lfappsbsaprod-21c2b108.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:255179915790:android:6dd4f1a0acdd52e188325f",
+        "android_client_info": {
+          "package_name": "com.littlefishapp.simplyblu"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwFF1ojVLvYQng0GRIUNk8OzRechZmd4U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:255179915790:android:e0fc9a3f6bd8019588325f",
+        "android_client_info": {
+          "package_name": "com.standardbank.simplyblu.android"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwFF1ojVLvYQng0GRIUNk8OzRechZmd4U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:255179915790:android:99d9a0274f092e2b88325f",
+        "android_client_info": {
+          "package_name": "com.standardbank.simplyblu.ingenico.prod"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwFF1ojVLvYQng0GRIUNk8OzRechZmd4U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:255179915790:android:00375c03d8e8bf9488325f",
+        "android_client_info": {
+          "package_name": "com.standardbank.simplyblu.pax"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwFF1ojVLvYQng0GRIUNk8OzRechZmd4U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:255179915790:android:b3c68515ddc7726288325f",
+        "android_client_info": {
+          "package_name": "com.standardbank.simplyblu.pax.prod"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwFF1ojVLvYQng0GRIUNk8OzRechZmd4U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:255179915790:android:cc6510c71ba44be388325f",
+        "android_client_info": {
+          "package_name": "com.standardbank.simplyblu.verifone.prod"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwFF1ojVLvYQng0GRIUNk8OzRechZmd4U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:255179915790:android:2ced6cdfa2a0436288325f",
+        "android_client_info": {
+          "package_name": "com.standardbank.simplyblu.yellowtoast.android"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwFF1ojVLvYQng0GRIUNk8OzRechZmd4U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

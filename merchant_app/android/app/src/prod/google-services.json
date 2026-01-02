@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1090801020318",
+    "firebase_url": "https://littlefish-merchant-prod.firebaseio.com",
+    "project_id": "littlefish-merchant-prod",
+    "storage_bucket": "littlefish-merchant-prod.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1090801020318:android:6046030f8414fae2f9ba8f",
+        "android_client_info": {
+          "package_name": "africa.nybble.littlefish_merchant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1090801020318-gju1s5bpldlhsaetd773epvb1jjc996g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "africa.nybble.littlefish_merchant",
+            "certificate_hash": "33d7f82dad2d532b9984929e00b914adce2d0291"
+          }
+        },
+        {
+          "client_id": "1090801020318-91drk939hb54tsp56mb6jk6fi3slsnab.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRI3xRUjscfoyPD1Ps29qu4Fp6rIj_-MA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1090801020318-91drk939hb54tsp56mb6jk6fi3slsnab.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

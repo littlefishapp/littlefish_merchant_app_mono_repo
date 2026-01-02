@@ -1,0 +1,119 @@
+import 'package:flutter/foundation.dart';
+import 'package:littlefish_core/core/littlefish_core.dart';
+import 'package:littlefish_core/hardware/printers/drivers/pos_printer.dart';
+import 'package:littlefish_core/hardware/scanners/littlefish_scanner.dart';
+import 'package:littlefish_core_intent/littlefish_core_intent.dart';
+import 'package:littlefish_merchant/app/app.dart';
+import 'package:littlefish_merchant/features/multi_cart_item_infrared_barcode_scanner/data/multi_item_infrared_barcode_scanner.dart';
+import 'package:littlefish_merchant/features/multi_cart_item_infrared_barcode_scanner/presentation/viewmodel/pos_multi_barcode_scanner_vm.dart';
+import 'package:littlefish_merchant/injector.dart';
+import 'package:littlefish_payments/gateways/pos_payment_gateway.dart';
+import 'package:littlefish_payments/managers/terminal_manager.dart';
+import 'package:littlefish_payments/models/shared/payment_provider.dart';
+import 'package:littlefish_payments_pos_ar/services/african_resonance_pos_gateway.dart';
+import 'package:littlefish_payments_pos_ar/services/african_resonance_provider.dart';
+import 'package:littlefish_payments_pos_bpos/gateways/broadpos_paymentgateway.dart';
+
+//SBG POS
+class PaymentsInjector {
+  static Future<CardPaymentRegistered> inject() async {
+    LittleFishCore core = LittleFishCore.instance;
+    final LittlefishCoreIntent intent = LittlefishCoreIntent();
+    final apps = await intent.checkPartialPackageExists('com.ar');
+    final sbgPosInstalled = apps.isNotEmpty;
+
+    debugPrint('SBG POS Installed: ${apps.length}');
+
+    CardPaymentRegistered result = CardPaymentRegistered.pos;
+    final package = await TerminalManager.getPackageInformation();
+
+    if (sbgPosInstalled) {
+      //ToDo: if present, load african resonacne as per below.
+
+      AfricanResonancePOSGateway posPaymentGateway =
+          AfricanResonancePOSGateway(package);
+
+      await posPaymentGateway.initialise(
+        settings: AfricanResonanceProvider(
+          id: '',
+          businessId: AppVariables.businessId,
+          name: 'African Resonance',
+          description: '',
+          enabled: true,
+          channel: PaymentProviderChannel.pos,
+          type: PaymentProviderType.card,
+          settings: {},
+        ),
+      );
+
+      result = CardPaymentRegistered.pos;
+      AppVariables.canPrintMerchantAndCustomerCopy = true;
+
+      core.registerLazyService<POSPaymentGateway>(
+        () => posPaymentGateway,
+      );
+
+      cardPaymentRegistered = result;
+
+      posPaymentGateway.getPOSPrinter().then((value) {
+        AppVariables.hasPrinter = true;
+        AppVariables.hasPrinterInitialized = true;
+        core.registerLazyService<POSPrinter>(() => value);
+      }).catchError((e) {
+        //ToDo: we need to move the app into an error state, so that it can restart this process.
+        debugPrint('Error getting printer: $e');
+      });
+
+      posPaymentGateway.getPOSScanner().then((value) {
+        AppVariables.hasScannerInitialized = true;
+        AppVariables.hasScanner = true;
+        core.registerLazyService<LittleFishScanner>(() => value);
+      }).catchError((e) {
+        //ToDo: we need to move the app into an error state, so that it can restart this process.
+        debugPrint('Error getting scanner: $e');
+      });
+      AppVariables.providerActions = posPaymentGateway.getSupportedActions();    
+
+    } else {
+      BroadPOSPaymentGateway broadPOSPaymentGateway =
+          BroadPOSPaymentGateway(package);
+
+      await broadPOSPaymentGateway.initialise();
+
+      result = CardPaymentRegistered.pos;
+
+      core.registerLazyService<POSPaymentGateway>(
+        () => broadPOSPaymentGateway,
+      );
+      
+      cardPaymentRegistered = result;
+      AppVariables.canPrintMerchantAndCustomerCopy = true;
+
+      broadPOSPaymentGateway.getPOSPrinter().then((value) {
+        AppVariables.hasPrinter = true;
+        AppVariables.hasPrinterInitialized = true;
+        core.registerLazyService<POSPrinter>(() => value);
+      }).catchError((e) {
+        //ToDo: we need to move the app into an error state, so that it can restart this process.
+        debugPrint('Error getting printer: $e');
+      });
+
+      broadPOSPaymentGateway.getPOSScanner().then((value) {
+        AppVariables.hasScannerInitialized = true;
+        AppVariables.hasScanner = true;
+        core.registerLazyService<LittleFishScanner>(() => value);
+      }).catchError((e) {
+        //ToDo: we need to move the app into an error state, so that it can restart this process.
+        debugPrint('Error getting scanner: $e');
+      });
+      AppVariables.providerActions = broadPOSPaymentGateway.getSupportedActions();    
+
+      core.registerLazyService<MultiCartItemInfraBarcodeScanner>(
+        () => PosMultiCartItemBarcodeScannerVM(),
+      );
+
+    }
+
+    return result;
+  }
+}

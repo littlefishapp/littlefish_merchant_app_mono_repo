@@ -1,0 +1,20 @@
+{
+  "buildFiles": [
+    "/Users/brandonroberts/fvm/versions/3.35.0/packages/flutter_tools/gradle/src/main/scripts/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/Users/brandonroberts/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+      "-C",
+      "/Users/brandonroberts/littlefish/source/littlefish_merchant_app/android/app/.cxx/debug/3c4v42j4/armeabi-v7a",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/Users/brandonroberts/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+    "-C",
+    "/Users/brandonroberts/littlefish/source/littlefish_merchant_app/android/app/.cxx/debug/3c4v42j4/armeabi-v7a",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {}
+}

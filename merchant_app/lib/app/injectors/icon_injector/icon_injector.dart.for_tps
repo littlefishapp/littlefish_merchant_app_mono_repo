@@ -1,0 +1,17 @@
+import 'package:littlefish_core/core/littlefish_core.dart';
+import 'package:littlefish_icons/core/icon_provider.dart';
+import 'package:littlefish_icons/providers/tps_icon_provider.dart';
+import 'package:littlefish_icons/littlefish_icons.dart';
+
+//TPS ICON INJECTOR
+class IconInjector {
+  static Future<void> inject() async {
+    LittleFishCore core = LittleFishCore.instance;
+
+    var provider = TpsIconProvider();
+
+    core.registerLazyService<IconProvider>(() => provider);
+
+    LittleFishIcons.setIconProvider(provider);
+  }
+}

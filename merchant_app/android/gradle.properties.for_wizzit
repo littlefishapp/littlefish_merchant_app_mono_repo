@@ -1,0 +1,8 @@
+org.gradle.jvmargs=-Xmx6G
+android.useAndroidX=true
+android.enableJetifier=true
+android.enableR8.fullMode = false
+org.gradle.caching=true
+# org.gradle.cache.lockTimeout=60000
+##BMR: do not comment back in, this breaks pipeline builds.
+# org.gradle.java.home=/Applications/Android Studio.app/Contents/jbr/Contents/Home

@@ -1,0 +1,162 @@
+{
+  "project_info": {
+    "project_number": "903955587061",
+    "project_id": "lfappsbsadev-71eb566b",
+    "storage_bucket": "lfappsbsadev-71eb566b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:903955587061:android:e2dfb4a6f42668ee3a0abc",
+        "android_client_info": {
+          "package_name": "africa.nybble.littlefish_merchant.sbsa.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlMKDs5-hPWSDubJeVv3ZT7MPL00Q7DWk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:903955587061:android:8d8d9b49bdd2975a3a0abc",
+        "android_client_info": {
+          "package_name": "com.littlefishapp.simplyblu.bpos.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlMKDs5-hPWSDubJeVv3ZT7MPL00Q7DWk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:903955587061:android:b0517424e1e088693a0abc",
+        "android_client_info": {
+          "package_name": "com.littlefishapp.simplyblu.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlMKDs5-hPWSDubJeVv3ZT7MPL00Q7DWk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:903955587061:android:290e3545669ef6b43a0abc",
+        "android_client_info": {
+          "package_name": "com.standardbank.simplyblu.android.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlMKDs5-hPWSDubJeVv3ZT7MPL00Q7DWk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:903955587061:android:41f95dd45eb20a423a0abc",
+        "android_client_info": {
+          "package_name": "com.standardbank.simplyblu.ingenico.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlMKDs5-hPWSDubJeVv3ZT7MPL00Q7DWk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:903955587061:android:76501301b01505073a0abc",
+        "android_client_info": {
+          "package_name": "com.standardbank.simplyblu.pax.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlMKDs5-hPWSDubJeVv3ZT7MPL00Q7DWk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:903955587061:android:09df5b5e1f0651033a0abc",
+        "android_client_info": {
+          "package_name": "com.standardbank.simplyblu.verifone.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlMKDs5-hPWSDubJeVv3ZT7MPL00Q7DWk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:903955587061:android:0ed60c27e50c63ec3a0abc",
+        "android_client_info": {
+          "package_name": "com.standardbank.simplyblu.yellowtoast.android.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlMKDs5-hPWSDubJeVv3ZT7MPL00Q7DWk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

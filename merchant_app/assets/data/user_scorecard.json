@@ -1,0 +1,168 @@
+{
+    "levels": [
+        {
+            "Level": 1,
+            "Friendly Name": "Bronze",
+            "Start": 0,
+            "End": 2000,
+            "Theme": "Metals",
+            "Color": "#cd7f32"
+        },
+        {
+            "Level": 2,
+            "Friendly Name": "Silver",
+            "Start": 2001,
+            "End": 5000,
+            "Theme": "Metals",
+            "Color": "#aaa9ad"
+        },
+        {
+            "Level": 3,
+            "Friendly Name": "Gold",
+            "Start": 5001,
+            "End": 24999,
+            "Theme": "Metals",
+            "Color": "#D4AF37"
+        },
+        {
+            "Level": 5,
+            "Friendly Name": "Diamond",
+            "Start": 25000,
+            "End": 100000,
+            "Theme": "Metals",
+            "Color": "#b9f2ff"
+        }
+    ],
+    "events": [
+        {
+            "eventId": "u-register",
+            "description": "Create your profile and join littlefish!",
+            "value": 1500
+        },
+        {
+            "eventId": "s-invite",
+            "description": "Invite your favourite store! get them online",
+            "value": 500
+        },
+        {
+            "eventId": "u-set-address",
+            "description": "Tell us where to find you!",
+            "value": 150
+        },
+        {
+            "eventId": "s-follow",
+            "description": "Follow local stores! be informed",
+            "value": 250
+        },
+        {
+            "eventId": "s-unfollow",
+            "description": "Unfollow local stores. oh no!",
+            "value": -350
+        },
+        {
+            "eventId": "s-purchase",
+            "description": "Buy from local stores :)",
+            "value": 100
+        },
+        {
+            "eventId": "s-purchase-online-payment",
+            "description": "Purchase from an store and pay electronicially",
+            "value": 250
+        },
+        {
+            "eventId": "s-review",
+            "description": "Review a local store",
+            "value": 150
+        },
+        {
+            "eventId": "p-review",
+            "description": "Review a product",
+            "value": 150
+        },
+        {
+            "eventId": "s-reccomendation",
+            "description": "Recommend a local store",
+            "value": 200
+        },
+        {
+            "eventId": "p-reccomendation",
+            "description": "Recommend a product from a local store",
+            "value": 100
+        },
+        {
+            "eventId": "a-daily-login",
+            "description": "Login",
+            "value": 2
+        },
+        {
+            "eventId": "s-view-event",
+            "description": "View  store",
+            "value": 10
+        }
+    ],
+    "goals": [
+        {
+            "goalId": "u-register",
+            "name": "Get Started",
+            "description": "Create your profile and join littlefish!",
+            "eventId": "u-register",
+            "qty": 1
+        },
+        {
+            "goalId": "s-invite",
+            "name": "Start supporting",
+            "description": "Invite your favourite stores",
+            "eventId": "s-invite",
+            "qty": 1
+        },
+        {
+            "goalId": "u-set-address",
+            "name": "Be a part of the community",
+            "description": "Set your address and get specialized deals",
+            "eventId": "u-set-address",
+            "qty": 1
+        },
+        {
+            "goalId": "s-follow",
+            "name": "Show some love",
+            "description": "Show your support by following a local store",
+            "eventId": "s-follow",
+            "qty": 5
+        },
+        {
+            "goalId": "s-purchase",
+            "name": "Make an impact",
+            "description": "Make a purchase from a local store",
+            "eventId": "s-purchase",
+            "qty": 10
+        },
+        {
+            "goalId": "s-purchase-online-payment",
+            "name": "It's time for change",
+            "description": "make a purchase from a local store without using cash",
+            "eventId": "s-purchase-online-payment",
+            "qty": 2
+        },
+        {
+            "goalId": "s-review",
+            "name": "Make it credible",
+            "description": "Help your community by reviewing your favourite stores",
+            "eventId": "s-review",
+            "qty": 5
+        },
+        {
+            "goalId": "p-review",
+            "name": "Show the good stuff",
+            "description": "Review products, to help us separate the good from the great!",
+            "eventId": "p-review",
+            "qty": 1
+        },
+        {
+            "goalId": "s-reccomendation",
+            "name": "Help-em Grow",
+            "description": "Recommend a local store to your friends and family",
+            "eventId": "s-reccomendation",
+            "qty": 10
+        }
+    ]
+}

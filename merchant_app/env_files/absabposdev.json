@@ -1,0 +1,8 @@
+{
+    "LAUNCHDARKLY_MOBILE_KEY": "mob-37c48608-83ed-4e85-b3b6-d7e436cb7489",
+    "USE_CASE": "absa-bpos",
+    "APP_ENVIRONMENT": "dev",
+    "LD_USER": "order3_dev",
+    "APP_NAME": "ShopRed"
+}
+

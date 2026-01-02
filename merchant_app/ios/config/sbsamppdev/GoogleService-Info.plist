@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyB5w1EJHk4ui2mhbiIg1j09agRzYf_7RNw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>903955587061</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>za.co.littlefishapp.simplyblu.dev</string>
+	<key>PROJECT_ID</key>
+	<string>lfappsbsadev-71eb566b</string>
+	<key>STORAGE_BUCKET</key>
+	<string>lfappsbsadev-71eb566b.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:903955587061:ios:6fe69050da01a6f83a0abc</string>
+</dict>
+</plist>

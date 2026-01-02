@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>394785306590-lhf4t5ut9t9arlbvbncd9q4v7bclsmn0.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.394785306590-lhf4t5ut9t9arlbvbncd9q4v7bclsmn0</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>394785306590-07o9o91jdeh03o0et9k17h8t7lf28g3n.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBq2mQ1iks3bHh0BZQqGsxClqJ1Pxa4-G4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>394785306590</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>africa.nybble.littlefish-merchant.dev</string>
+	<key>PROJECT_ID</key>
+	<string>littlefish-merchant-dev</string>
+	<key>STORAGE_BUCKET</key>
+	<string>littlefish-merchant-dev.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:394785306590:ios:5c9237a36190db07638f4f</string>
+	<key>DATABASE_URL</key>
+	<string>https://littlefish-merchant-dev.firebaseio.com</string>
+</dict>
+</plist>

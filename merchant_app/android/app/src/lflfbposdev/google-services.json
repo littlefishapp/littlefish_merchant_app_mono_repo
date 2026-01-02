@@ -1,0 +1,495 @@
+{
+  "project_info": {
+    "project_number": "394785306590",
+    "firebase_url": "https://littlefish-merchant-dev.firebaseio.com",
+    "project_id": "littlefish-merchant-dev",
+    "storage_bucket": "littlefish-merchant-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:394785306590:android:7d8834ac117bf523638f4f",
+        "android_client_info": {
+          "package_name": "africa.littlefishapp.companion.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "394785306590-p9n9r2q5bf6o1gpb340pa008rara6cre.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "africa.littlefishapp.companion.dev",
+            "certificate_hash": "4b10db8feb503eb59ca180a1c908da59d3f35417"
+          }
+        },
+        {
+          "client_id": "394785306590-gi22c29ifrdo9ia238d4f01de8iqk84k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPHQFdCHYHLG2AmH3K-KOdLGAFZqgYjwA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "394785306590-gi22c29ifrdo9ia238d4f01de8iqk84k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "394785306590-bd97t7dhcda79h5krgqvs5ao18fq95mo.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "africa.nybble.littlefish-merchant.local"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:394785306590:android:7a21d8390eba0a88638f4f",
+        "android_client_info": {
+          "package_name": "africa.littlefishapp.littlefish_market"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "394785306590-gi22c29ifrdo9ia238d4f01de8iqk84k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPHQFdCHYHLG2AmH3K-KOdLGAFZqgYjwA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "394785306590-gi22c29ifrdo9ia238d4f01de8iqk84k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "394785306590-bd97t7dhcda79h5krgqvs5ao18fq95mo.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "africa.nybble.littlefish-merchant.local"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:394785306590:android:7c0a9cd8dd7654da638f4f",
+        "android_client_info": {
+          "package_name": "africa.littlefishapp.littlefish_market.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "394785306590-k67n2u6j5fir16ehb23m9ohpbr23os9f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "africa.littlefishapp.littlefish_market.dev",
+            "certificate_hash": "3b9d1dd324406eac29c23fcedc5e6081428dfd62"
+          }
+        },
+        {
+          "client_id": "394785306590-gi22c29ifrdo9ia238d4f01de8iqk84k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPHQFdCHYHLG2AmH3K-KOdLGAFZqgYjwA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "394785306590-gi22c29ifrdo9ia238d4f01de8iqk84k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "394785306590-bd97t7dhcda79h5krgqvs5ao18fq95mo.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "africa.nybble.littlefish-merchant.local"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:394785306590:android:a575a5d06050c5f5638f4f",
+        "android_client_info": {
+          "package_name": "africa.littlefishapp.littlefish_seller.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "394785306590-07o9o91jdeh03o0et9k17h8t7lf28g3n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "africa.littlefishapp.littlefish_seller.dev",
+            "certificate_hash": "a4c5714047e36226194e6bca809d6bad0ce38e51"
+          }
+        },
+        {
+          "client_id": "394785306590-gi22c29ifrdo9ia238d4f01de8iqk84k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPHQFdCHYHLG2AmH3K-KOdLGAFZqgYjwA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "394785306590-gi22c29ifrdo9ia238d4f01de8iqk84k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "394785306590-bd97t7dhcda79h5krgqvs5ao18fq95mo.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "africa.nybble.littlefish-merchant.local"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:394785306590:android:fec09103f04adef4638f4f",
+        "android_client_info": {
+          "package_name": "africa.littlefishapp.merchantapp.pax.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "394785306590-92r7ftsg17hkh3g118t90fa111skrp5e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "africa.littlefishapp.merchantapp.pax.dev",
+            "certificate_hash": "9671c9626b984772e61ed1b4957b2bba486ca2b7"
+          }
+        },
+        {
+          "client_id": "394785306590-gi22c29ifrdo9ia238d4f01de8iqk84k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPHQFdCHYHLG2AmH3K-KOdLGAFZqgYjwA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "394785306590-gi22c29ifrdo9ia238d4f01de8iqk84k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "394785306590-bd97t7dhcda79h5krgqvs5ao18fq95mo.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "africa.nybble.littlefish-merchant.local"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:394785306590:android:de26ec39d1771f70638f4f",
+        "android_client_info": {
+          "package_name": "africa.nybble.littlefish_merchant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "394785306590-gi22c29ifrdo9ia238d4f01de8iqk84k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPHQFdCHYHLG2AmH3K-KOdLGAFZqgYjwA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "394785306590-gi22c29ifrdo9ia238d4f01de8iqk84k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "394785306590-bd97t7dhcda79h5krgqvs5ao18fq95mo.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "africa.nybble.littlefish-merchant.local"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:394785306590:android:fb675d1e1d9dd2e6638f4f",
+        "android_client_info": {
+          "package_name": "africa.nybble.littlefish_merchant.absa.lfpos.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "394785306590-njv3cuqn3o82i6hajs9oehstro614rap.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "africa.nybble.littlefish_merchant.absa.lfpos.dev",
+            "certificate_hash": "26e307b21b2b763293feaeace2d4cd5842a6fd09"
+          }
+        },
+        {
+          "client_id": "394785306590-gi22c29ifrdo9ia238d4f01de8iqk84k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPHQFdCHYHLG2AmH3K-KOdLGAFZqgYjwA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "394785306590-gi22c29ifrdo9ia238d4f01de8iqk84k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "394785306590-bd97t7dhcda79h5krgqvs5ao18fq95mo.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "africa.nybble.littlefish-merchant.local"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:394785306590:android:72dfe5ed79261901638f4f",
+        "android_client_info": {
+          "package_name": "africa.nybble.littlefish_merchant.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "394785306590-3pl92speau0qb7o352egtt7mnkat21m7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "africa.nybble.littlefish_merchant.dev",
+            "certificate_hash": "a1a633d07773b010a4b3fd169dc19fd7a0c75414"
+          }
+        },
+        {
+          "client_id": "394785306590-f5l5mo5g532jj1m7enqv1hnc54n8gs9o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "africa.nybble.littlefish_merchant.dev",
+            "certificate_hash": "2a89e3814b39488360a3e9f78e85c4f8b25fc8c7"
+          }
+        },
+        {
+          "client_id": "394785306590-j91kf7me2at49mv5prs048ohnn2837fb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "africa.nybble.littlefish_merchant.dev",
+            "certificate_hash": "10a263d3d83691d9f141e0bf16a4906ca04c1d44"
+          }
+        },
+        {
+          "client_id": "394785306590-lmpo8asb9j179n1obh5i4ubs9c65tf2d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "africa.nybble.littlefish_merchant.dev",
+            "certificate_hash": "33d7f82dad2d532b9984929e00b914adce2d0291"
+          }
+        },
+        {
+          "client_id": "394785306590-gi22c29ifrdo9ia238d4f01de8iqk84k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPHQFdCHYHLG2AmH3K-KOdLGAFZqgYjwA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "394785306590-gi22c29ifrdo9ia238d4f01de8iqk84k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "394785306590-bd97t7dhcda79h5krgqvs5ao18fq95mo.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "africa.nybble.littlefish-merchant.local"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:394785306590:android:17ed73f8638f1358638f4f",
+        "android_client_info": {
+          "package_name": "africa.nybble.littlefish_merchant.lf.lfpos.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "394785306590-4q19u2ogdkuh2r71k6eglkqm687bgc4f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "africa.nybble.littlefish_merchant.lf.lfpos.dev",
+            "certificate_hash": "6cceaa727bfed942cd681cf211634d816d2a1db4"
+          }
+        },
+        {
+          "client_id": "394785306590-gi22c29ifrdo9ia238d4f01de8iqk84k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPHQFdCHYHLG2AmH3K-KOdLGAFZqgYjwA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "394785306590-gi22c29ifrdo9ia238d4f01de8iqk84k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "394785306590-bd97t7dhcda79h5krgqvs5ao18fq95mo.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "africa.nybble.littlefish-merchant.local"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:394785306590:android:b1e3246701dea72d638f4f",
+        "android_client_info": {
+          "package_name": "africa.nybble.littlefish_merchant.local"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "394785306590-gi22c29ifrdo9ia238d4f01de8iqk84k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPHQFdCHYHLG2AmH3K-KOdLGAFZqgYjwA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "394785306590-gi22c29ifrdo9ia238d4f01de8iqk84k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "394785306590-bd97t7dhcda79h5krgqvs5ao18fq95mo.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "africa.nybble.littlefish-merchant.local"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:394785306590:android:240ec2a1b6a5646e638f4f",
+        "android_client_info": {
+          "package_name": "africa.nybble.littlefish_merchant.standardbank"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "394785306590-618chvfetpt5hutq37g716sib6g2jm4a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "africa.nybble.littlefish_merchant.standardbank",
+            "certificate_hash": "aab89a398f2e174f03b669ba214ef318e47027d7"
+          }
+        },
+        {
+          "client_id": "394785306590-gi22c29ifrdo9ia238d4f01de8iqk84k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPHQFdCHYHLG2AmH3K-KOdLGAFZqgYjwA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "394785306590-gi22c29ifrdo9ia238d4f01de8iqk84k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "394785306590-bd97t7dhcda79h5krgqvs5ao18fq95mo.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "africa.nybble.littlefish-merchant.local"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

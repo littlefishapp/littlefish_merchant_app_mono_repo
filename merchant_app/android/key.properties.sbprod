@@ -1,0 +1,4 @@
+storePassword=1QAZxsw23edcvfr4
+keyPassword=1QAZxsw23edcvfr4
+keyAlias=sbsa_mpp_dev
+storeFile=../lf_m_devkeys.jks

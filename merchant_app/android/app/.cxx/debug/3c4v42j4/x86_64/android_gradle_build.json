@@ -1,0 +1,28 @@
+{
+  "buildFiles": [
+    "/Users/brandonroberts/fvm/versions/3.35.0/packages/flutter_tools/gradle/src/main/scripts/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/Users/brandonroberts/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+      "-C",
+      "/Users/brandonroberts/littlefish/source/littlefish_merchant_app/android/app/.cxx/debug/3c4v42j4/x86_64",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/Users/brandonroberts/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+    "-C",
+    "/Users/brandonroberts/littlefish/source/littlefish_merchant_app/android/app/.cxx/debug/3c4v42j4/x86_64",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {},
+  "toolchains": {
+    "toolchain": {
+      "cCompilerExecutable": "/Users/brandonroberts/Library/Android/sdk/ndk/27.0.12077973/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang.lld",
+      "cppCompilerExecutable": "/Users/brandonroberts/Library/Android/sdk/ndk/27.0.12077973/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++.lld"
+    }
+  },
+  "cFileExtensions": [],
+  "cppFileExtensions": []
+}

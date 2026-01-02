@@ -1,0 +1,394 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+    id "com.google.gms.google-services"
+    id "com.google.firebase.crashlytics"
+}
+
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
+    }
+}
+
+def flutterRoot = localProperties.getProperty('flutter.sdk')
+if (flutterRoot == null) {
+    throw new GradleException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
+}
+
+def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
+if (flutterVersionCode == null) {
+    flutterVersionCode = '1'
+}
+
+def flutterVersionName = localProperties.getProperty('flutter.versionName')
+if (flutterVersionName == null) {
+    flutterVersionName = '1.0'
+}
+
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = rootProject.file('key.properties')
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+
+def devkeystoreProperties = new Properties()
+def devkeystorePropertiesFile = rootProject.file('key.properties.dev')
+if (devkeystorePropertiesFile.exists()) {
+    devkeystoreProperties.load(new FileInputStream(devkeystorePropertiesFile))
+}
+
+def lfkeystoreProperties = new Properties()
+def lfkeystorePropertiesFile = rootProject.file('key.properties.lf')
+if (lfkeystorePropertiesFile.exists()) {
+    lfkeystoreProperties.load(new FileInputStream(lfkeystorePropertiesFile))
+}
+
+def sbkeystoreProperties = new Properties()
+def sbkeystorePropertiesFile = rootProject.file('key.properties.sb')
+if (sbkeystorePropertiesFile.exists()) {
+    sbkeystoreProperties.load(new FileInputStream(sbkeystorePropertiesFile))
+}
+
+def sbprodkeystoreProperties = new Properties()
+def sbprodkeystorePropertiesFile = rootProject.file('key.properties.sb')
+if (sbprodkeystorePropertiesFile.exists()) {
+    sbprodkeystoreProperties.load(new FileInputStream(sbprodkeystorePropertiesFile))
+}
+
+def absakeystoreProperties = new Properties()
+def absakeystorePropertiesFile = rootProject.file('key.properties.absa')
+if (absakeystorePropertiesFile.exists()) {
+    absakeystoreProperties.load(new FileInputStream(absakeystorePropertiesFile))
+}
+
+
+android {
+    println(" ____BUILD GRADLE_FOR_WIZZIT____")
+    buildFeatures {
+        buildConfig = true
+    }
+    namespace "com.littlefish_merchant_app"
+    compileSdkVersion flutter.compileSdkVersion
+    ndkVersion "27.0.12077973" //flutter.ndkVersion
+    // buildToolseVersion flutter.buildToolsVersion
+
+    compileOptions {
+        // Flag to enable support for the new language APIs
+        coreLibraryDesugaringEnabled true
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_17
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    defaultConfig {
+        minSdkVersion 27
+        targetSdkVersion 34
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
+        multiDexEnabled true
+    }
+
+    signingConfigs {
+
+        lf {
+            keyAlias lfkeystoreProperties['keyAlias']
+            keyPassword lfkeystoreProperties['keyPassword']
+            storeFile file(lfkeystoreProperties['storeFile'])
+            storePassword lfkeystoreProperties['storePassword']
+        }
+
+        lflfcompprod {
+            keyAlias lfkeystoreProperties['lflfcompprod']
+            keyPassword lfkeystoreProperties['keyPassword']
+            storeFile file(lfkeystoreProperties['storeFile'])
+            storePassword lfkeystoreProperties['storePassword']
+        }
+
+        lflfcompdev {
+            keyAlias lfkeystoreProperties['lflfcompdev']
+            keyPassword lfkeystoreProperties['keyPassword']
+            storeFile file(lfkeystoreProperties['storeFile'])
+            storePassword lfkeystoreProperties['storePassword']
+        }
+
+        sbsamppdev {
+            keyAlias sbkeystoreProperties['sbsamppdev']
+            keyPassword sbkeystoreProperties['keyPassword']
+            storeFile file(sbkeystoreProperties['storeFile'])
+            storePassword sbkeystoreProperties['storePassword']
+        }
+
+        sbsamppprod {
+            keyAlias sbkeystoreProperties['sbsamppprod']
+            keyPassword sbkeystoreProperties['keyPassword']
+            storeFile file(sbkeystoreProperties['storeFile'])
+            storePassword sbkeystoreProperties['storePassword']
+        }
+
+        yellowtoastmppprod {
+            keyAlias sbkeystoreProperties['yellowtoastmppprod']
+            keyPassword sbkeystoreProperties['keyPassword']
+            storeFile file(sbkeystoreProperties['storeFile'])
+            storePassword sbkeystoreProperties['storePassword']
+        }
+
+        yellowtoastmppdev {
+            keyAlias sbkeystoreProperties['yellowtoastmppdev']
+            keyPassword sbkeystoreProperties['keyPassword']
+            storeFile file(sbkeystoreProperties['storeFile'])
+            storePassword sbkeystoreProperties['storePassword']
+        }
+
+
+        absacompdev {
+            keyAlias absakeystoreProperties['absacompdev']
+            keyPassword absakeystoreProperties['keyPassword']
+            storeFile file(absakeystoreProperties['storeFile'])
+            storePassword absakeystoreProperties['storePassword']
+        }
+
+        absacompuat {
+            keyAlias absakeystoreProperties['absacompuat']
+            keyPassword absakeystoreProperties['keyPassword']
+            storeFile file(absakeystoreProperties['storeFile'])
+            storePassword absakeystoreProperties['storePassword']
+        }
+
+        absazacompzaprod {
+            keyAlias absakeystoreProperties['absazacompzaprod']
+            keyPassword absakeystoreProperties['keyPassword']
+            storeFile file(absakeystoreProperties['storeFile'])
+            storePassword absakeystoreProperties['storePassword']
+        }
+    }
+
+    flavorDimensions "segment", "pos", "env"
+    productFlavors {
+
+        //------------------------ segment
+
+        sbsa {
+            dimension "segment"
+            applicationId "com.standardbank"
+            applicationIdSuffix ".simplyblu"
+            manifestPlaceholders = [appName: "SimplyBLU Mpp"]
+            resValue "string", "app_name", "SimplyBLU"
+        }
+
+        yellowtoast {
+            dimension "segment"
+            applicationId "com.standardbank"
+            applicationIdSuffix ".simplyblu.yellowtoast"
+            manifestPlaceholders = [appName: "SimplyBLU Mpp"]
+            resValue "string", "app_name", "SimplyBLU"
+        }
+
+
+        lf {
+            dimension "segment"
+            applicationId "africa.littlefishapp"
+            applicationIdSuffix ""
+            manifestPlaceholders = [appName: "littlefish"]
+            resValue "string", "app_name", "littlefish"
+        }
+
+        absa {
+            dimension "segment"
+            applicationId "africa.absa"
+            applicationIdSuffix ".shopred"
+            manifestPlaceholders = [appName: "ABSA"]
+            resValue "string", "app_name", "ShopRed"
+        }
+
+        absaza {
+            dimension "segment"
+            applicationId "za.absa"
+            applicationIdSuffix ".shopred"
+            manifestPlaceholders = [appName: "ABSA"]
+            resValue "string", "app_name", "ShopRed"
+        }
+
+        //--------------------------- pos
+
+        mpp {
+            dimension "pos"
+            applicationIdSuffix ".android"
+            // repositories {
+            //     maven {
+            //         url "${project(':background_fetch').projectDir}/libs"
+            //     }
+            //    maven {
+            //    url "${project(':littlefishpay_mypinpad_sdk').projectDir}/libs"
+            //    }
+            //    println("#### ${project(':littlefishpay_mypinpad_sdk').projectDir}/libs")
+            // }
+        }
+
+        comp {
+            dimension "pos"
+            applicationIdSuffix ".android"
+        }
+
+        lfcomp {
+            dimension "pos"
+            applicationIdSuffix ".companion"
+        }
+
+        compza {
+            dimension "pos"
+            applicationIdSuffix ".android.prod"
+        }
+
+        //------------------------- env
+
+        prod {
+            dimension "env"
+            applicationIdSuffix ""
+            manifestPlaceholders = [appName: "littlefish App"]
+        }
+
+        dev {
+            dimension "env"
+            applicationIdSuffix ".dev"
+            manifestPlaceholders = [appName: "[DEV] littlefish App"]
+        }
+
+        uat {
+            dimension "env"
+            applicationIdSuffix ".uat"
+            manifestPlaceholders = [appName: "[UAT] littlefish App"]
+        }
+    }
+
+    println("#### productFlavors: ${productFlavors.collect { it.name }}")
+    println("#### applicationVariants: ${applicationVariants.collect { it.name }}")    
+    
+
+    // afterEvaluate {
+    //   println("#### applicationVariants: ${applicationVariants.collect { it.name }}")    
+    // }
+    
+    // Get the tasks being executed
+    def requestedTasks = gradle.startParameter.taskNames
+    println "Requested tasks: ${requestedTasks}"
+    applicationVariants.all { variant ->
+        // Check if this variant is being built
+        def isCurrentVariant = requestedTasks.any { task ->
+            task.toLowerCase().contains(variant.name.toLowerCase()) ||
+            task.toLowerCase().contains(variant.flavorName.toLowerCase())
+        }
+        if (isCurrentVariant) {
+            // Parse flavorName to extract segment, pos, env
+            def flavorParts = variant.flavorName.split("(?=[A-Z])")
+            def segment = flavorParts[0] ?: ""
+            def pos = flavorParts.length > 1 ? flavorParts[1] : ""
+            def env = flavorParts.length > 2 ? flavorParts[2] : ""
+            println "#### Current Variant Being Built: name=${variant.name}, flavorName=${variant.flavorName}, buildType=${variant.buildType.name}"
+            println "#### Parsed: segment=${segment}, pos=${pos}, env=${env}"
+            // Set isKiosk for absaza/absa + bpos/pax + prod
+            def isKioskFlavor = segment in ["absaza", "absa"] && pos in ["Bpos", "pax"] // && env == "Prod"
+            variant.buildConfigField "boolean", "isKiosk", "${isKioskFlavor}"
+            println "#### Setting BuildConfig.isKiosk=${isKioskFlavor} for variant ${variant.flavorName} (segment=${segment}, pos=${pos}, env=${env})"
+            
+        }
+    }    
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'wizzit-proguard-rules.pro'
+        }
+    }
+
+
+
+    androidComponents {
+        onVariants(selector().all(), { variant ->
+            if (variant.name.contains("sbsaPax") ||variant.name.contains("sbsaBpos") || variant.name.contains("sbsaMpp") || variant.name.contains("yellowtoastMpp")) {
+                //println("#### Manage variant ${variant.name} -> ")
+                manageVariants(variant, sbkeystoreProperties, signingConfigs);
+            } else if (variant.name.contains("absaComp") || variant.name.contains("absaBpos")) {
+                // println("#### Manage variant ${variant.name} -> ")
+                manageVariants(variant, absakeystoreProperties, signingConfigs);
+            } else if (variant.name.contains("absazaCompza") ||  variant.name.contains("absazaPax")){
+                println("#### Manage variant ${variant.name} -> ")
+                manageVariants(variant, absakeystoreProperties, signingConfigs);
+            } else if (variant.name.contains("lfLfcomp") || variant.name.contains("Lfbpos")) {
+                //println("#### Manage variant ${variant.name} -> ")
+                manageVariants(variant, lfkeystoreProperties, signingConfigs);
+            } else {
+                // println("#### ${variant.name} not selected for signing ")
+            }
+        })
+    }
+
+}
+
+flutter {
+    source '../..'
+}
+
+def manageVariants(Object variant, Object keystore, Object signingConfigs) {
+    String[] parts = variant.name.contains("Release") ? variant.name.split("Release", 2) : variant.name.split("Debug", 2);
+    
+    String part0 = parts[0].toLowerCase();
+    String[] configs = signingConfigs;
+    configs.each{ item -> 
+         
+            def val = item.find(part0)
+            if (val != null) {
+              println("#### SigningConfig  $val found and signing config set")
+              variant.signingConfig?.setConfig(signingConfigs[val])
+            } 
+        
+    }
+    
+}
+
+
+dependencies {
+    implementation 'com.google.firebase:firebase-crashlytics:18.0.1'  // This version is compatible with newer Kotlin
+    implementation 'com.google.firebase:firebase-analytics:18.0.0'
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.4'
+    // Keep appcompat at 1.6.1 since 1.7.0 is causing dexing issues
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4' // Add this line
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation files('libs/wizzitEmvSdk-1.7.8-release-protected_qa_za_20250506.aar')
+    implementation files('libs/wizzitEmvSdkVisa-1.0.10-release-protected_21082024.aar')
+    implementation files('libs/wizzitEmvSdkMasterCard-2.2.01-release-protected_11032025.aar')
+    implementation files('libs/VisaSensoryBranding.aar')
+    implementation files('libs/sonic-sdk-release-1.3.0.aar')
+    implementation 'com.google.code.gson:gson:2.2.2'
+    implementation 'org.bouncycastle:bcpkix-jdk15on:1.56'
+    implementation "com.squareup.okhttp3:okhttp:4.5.0"
+}
+
+
+
+// https://github.com/flutter/flutter
+// Allow to dynamically depend on plugins based on current app flavor #80940
+// flavored_packages: ^0.0.2
+// Proposal to add flavor to pubspec.yaml https://github.com/flutter/flutter/issues/100813#top 
+
+// script to select a yaml https://gist.github.com/jj-hoeksema/c5a54a1cdd1da9ab7a3100c6b5797e05 
+// lib/
+// tools/
+// ---flavor_setup.dart
+// pubspec/
+// ---defaults.yaml
+// ---google.yaml
+// ---amazon.yam
+// pubspec.yaml

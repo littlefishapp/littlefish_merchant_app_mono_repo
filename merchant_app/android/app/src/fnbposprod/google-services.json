@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "543753027328",
+    "project_id": "fnb-prod-lf",
+    "storage_bucket": "fnb-prod-lf.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:543753027328:android:15a045d1b9d4b485cc7de5",
+        "android_client_info": {
+          "package_name": "za.co.fnb.webstore.companion.prod"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNV6iYAdphsTBu9AruPskgOPgJGGAfryg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:543753027328:android:77e8e35646f9de7ecc7de5",
+        "android_client_info": {
+          "package_name": "za.co.fnb.webstore.ingenico.prod"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNV6iYAdphsTBu9AruPskgOPgJGGAfryg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:543753027328:android:a1371c593eb7d7e5cc7de5",
+        "android_client_info": {
+          "package_name": "za.co.fnb.webstore.pos.prod"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNV6iYAdphsTBu9AruPskgOPgJGGAfryg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

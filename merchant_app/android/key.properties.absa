@@ -1,0 +1,13 @@
+storePassword=1QAZxsw23edcvfr4
+keyPassword=1QAZxsw23edcvfr4
+storeFile=../absa_keystore.jks
+absabposdev=absabposdev
+absabposuat=absabposuat
+absazapaxprod=absazapaxprod
+absacompdev=absacompdev2
+absacomppuat=absacompuat
+absazacompzaprod=absazacompzaprod
+absazaingenicodev=absazaingenicodev
+absazaingenicoprod=absazaingenicoprod
+absaverifonedev=absazaverifonedev
+absaverifoneprod=absazaverifoneprod

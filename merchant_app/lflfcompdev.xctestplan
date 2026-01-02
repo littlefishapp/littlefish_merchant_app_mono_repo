@@ -1,0 +1,39 @@
+{
+  "configurations" : [
+    {
+      "id" : "DA38FF38-B671-4DF1-A553-DB1627FDCCB5",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "commandLineArgumentEntries" : [
+      {
+        "argument" : "FLAVOR=lflfcompdev"
+      }
+    ],
+    "environmentVariableEntries" : [
+      {
+        "enabled" : false,
+        "key" : "",
+        "value" : ""
+      },
+      {
+        "key" : "FLAVOR",
+        "value" : "lflfcompdev"
+      }
+    ],
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Runner.xcodeproj",
+      "identifier" : "97C146ED1CF9000F007C117D",
+      "name" : "Runner"
+    }
+  },
+  "testTargets" : [
+
+  ],
+  "version" : 1
+}

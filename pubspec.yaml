@@ -1,0 +1,101 @@
+name: littlefish_merchant_app_root
+description: The root pubspec for the merchant app.
+publish_to: none
+version: 1.0.0
+homepage: https://littlefish.app
+repository: https://github.com/littlefishapp/littlefish_payments_mono_repo
+
+environment:
+  sdk: ^3.8.0
+
+dependency_overrides: 
+  decimal: 3.2.4
+  flutter_lints: ^6.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  melos: ^7.3.0
+
+workspace:
+  - merchant_app
+
+
+melos:
+
+  # IDE configuration
+  # ide:
+  #   intellij:
+  #     enabled: true
+  #     moduleNamePrefix: littlefish_
+
+  # Package categories for filtering
+  # categories:
+  #   core:
+  #     - littlefish_payments
+  #   pos:
+  #     - packages/pos/**
+  #   softpos:
+  #     - packages/softpos/**
+  #   sdks:
+  #     - packages/sdks/**
+
+  # Custom scripts
+  scripts:
+    # Analyze all packages
+    analyze:
+      description: Run dart analyze across all packages
+      run: melos exec -- dart analyze .
+
+    # Format all packages
+    format:
+      description: Format all Dart files
+      run: melos exec -- dart format .
+
+    # Check formatting without making changes
+    format:check:
+      description: Check formatting without making changes
+      run: melos exec -- dart format --set-exit-if-changed --output=none .
+
+    # Run tests in all packages
+    test:
+      description: Run tests in all packages
+      run: melos exec --fail-fast -- flutter test
+      packageFilters:
+        dirExists: test
+
+    # Run build_runner in packages that have it
+    generate:
+      description: Run build_runner to generate code
+      run: melos exec -c 1 --depends-on build_runner -- dart run build_runner build --delete-conflicting-outputs
+
+    # Clean all packages
+    clean:all:
+      description: Clean all packages
+      run: melos exec -- flutter clean
+
+    # Get dependencies for all packages
+    get:
+      description: Get dependencies for all packages
+      run: melos exec -- flutter pub get
+
+    # Upgrade dependencies for all packages
+    upgrade:
+      description: Upgrade dependencies for all packages
+      run: melos exec -- flutter pub upgrade
+
+    # List outdated dependencies
+    outdated:
+      description: List outdated dependencies in all packages
+      run: melos exec -- flutter pub outdated
+
+    # Dry run publish to check for issues
+    publish:check:
+      description: Dry run publish to check for issues
+      run: melos exec --no-private -- dart pub publish --dry-run
+
+    # Version packages using conventional commits
+    version:
+      description: Version packages based on conventional commits
+      run: melos version

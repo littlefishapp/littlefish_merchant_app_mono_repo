@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyCkKr9tpck8alqjP_nEA9QqQSxqfRW1UIM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>881218131008</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>za.absa.shopred.ios.prod</string>
+	<key>PROJECT_ID</key>
+	<string>absa-prod-431807</string>
+	<key>STORAGE_BUCKET</key>
+	<string>absa-prod-431807.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:881218131008:ios:a5b67a0a33512cec93bba5</string>
+</dict>
+</plist>

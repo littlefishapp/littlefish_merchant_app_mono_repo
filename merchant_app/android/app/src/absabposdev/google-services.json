@@ -1,0 +1,101 @@
+{
+  "project_info": {
+    "project_number": "447944361910",
+    "project_id": "absa-uat-431807",
+    "storage_bucket": "absa-uat-431807.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:447944361910:android:745cffc70d0d73fa516317",
+        "android_client_info": {
+          "package_name": "africa.absa.shopred.android.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANFmpg84SC-YDhZJQDWKIZLhaI502WbTA"
+        }
+      ],
+      "services": {}
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:447944361910:android:fde967a1a9aa637e516317",
+        "android_client_info": {
+          "package_name": "africa.absa.shopred.pax.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANFmpg84SC-YDhZJQDWKIZLhaI502WbTA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:447944361910:android:cfd9f32ed334bb0a516317",
+        "android_client_info": {
+          "package_name": "africa.shopred.android.uat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANFmpg84SC-YDhZJQDWKIZLhaI502WbTA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:447944361910:android:86a6bec05474bbe2516317",
+        "android_client_info": {
+          "package_name": "za.absa.shopred.ingenico.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANFmpg84SC-YDhZJQDWKIZLhaI502WbTA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:447944361910:android:c39c283eb5490ec3516317",
+        "android_client_info": {
+          "package_name": "za.absa.shopred.verifone.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANFmpg84SC-YDhZJQDWKIZLhaI502WbTA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

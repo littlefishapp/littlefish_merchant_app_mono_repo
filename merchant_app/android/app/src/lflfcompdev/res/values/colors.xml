@@ -1,0 +1,7 @@
+<resources>
+    <color name="splash_background">#FFFFFF</color>
+    <color name="primaryColor">#3E7568</color>
+    <color name="secondaryColor">#000000</color>
+    <color name="backgroundColor">#FFFFFF</color>
+    <color name="white">#FFFFFF</color>
+</resources>

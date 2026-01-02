@@ -1,0 +1,291 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+    id "com.google.gms.google-services"
+    id "com.google.firebase.crashlytics"
+}
+
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
+    }
+}
+
+def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
+if (flutterVersionCode == null) {
+    flutterVersionCode = '1'
+}
+
+def flutterVersionName = localProperties.getProperty('flutter.versionName')
+if (flutterVersionName == null) {
+    flutterVersionName = '1.0'
+}
+
+def lfkeystoreProperties = new Properties()
+def lfkeystorePropertiesFile = rootProject.file('key.properties.lf')
+if (lfkeystorePropertiesFile.exists()) {
+    lfkeystoreProperties.load(new FileInputStream(lfkeystorePropertiesFile))
+}
+
+def sbkeystoreProperties = new Properties()
+def sbkeystorePropertiesFile = rootProject.file('key.properties.sb')
+if (sbkeystorePropertiesFile.exists()) {
+    sbkeystoreProperties.load(new FileInputStream(sbkeystorePropertiesFile))
+}
+
+def absakeystoreProperties = new Properties()
+def absakeystorePropertiesFile = rootProject.file('key.properties.absa')
+if (absakeystorePropertiesFile.exists()) {
+    absakeystoreProperties.load(new FileInputStream(absakeystorePropertiesFile))
+}
+
+def fnbkeystoreProperties = new Properties()
+def fnbkeystorePropertiesFile = rootProject.file('key.properties.fnb')
+if (fnbkeystorePropertiesFile.exists()) {
+    fnbkeystoreProperties.load(new FileInputStream(fnbkeystorePropertiesFile))
+}
+
+android {
+    println(" ____BUILD GRADLE_FOR_INGENICO____")
+    //ToDo(BRoberts): namespace needs to be corrected.
+    namespace "com.littlefish_merchant_app"
+    buildFeatures {
+        buildConfig = true
+    }
+    compileSdkVersion flutter.compileSdkVersion
+    ndkVersion flutter.ndkVersion
+    // buildToolseVersion flutter.buildToolsVersion
+
+    compileOptions {
+        // Flag to enable support for the new language APIs
+        coreLibraryDesugaringEnabled true
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_17
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    defaultConfig {
+        minSdkVersion 27
+        targetSdkVersion 34
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
+    }
+
+    signingConfigs {
+        lfingenicodev {
+            keyAlias lfkeystoreProperties['lfingenicodev']
+            keyPassword lfkeystoreProperties['keyPassword']
+            storeFile file(lfkeystoreProperties['storeFile'])
+            storePassword lfkeystoreProperties['storePassword']
+        }
+
+        sbsaingenicodev {
+            keyAlias sbkeystoreProperties['sbsaingenicodev']
+            keyPassword sbkeystoreProperties['keyPassword']
+            storeFile file(sbkeystoreProperties['storeFile'])
+            storePassword sbkeystoreProperties['storePassword']
+        }
+
+        sbsaingenicoprod {
+            keyAlias sbkeystoreProperties['sbsaingenicoprod']
+            keyPassword sbkeystoreProperties['keyPassword']
+            storeFile file(sbkeystoreProperties['storeFile'])
+            storePassword sbkeystoreProperties['storePassword']
+        }
+
+        absazaingenicodev {
+            keyAlias absakeystoreProperties['absazaingenicodev']
+            keyPassword absakeystoreProperties['keyPassword']
+            storeFile file(absakeystoreProperties['storeFile'])
+            storePassword absakeystoreProperties['storePassword']
+        }
+
+        absazaingenicoprod {
+            keyAlias absakeystoreProperties['absazaingenicoprod']
+            keyPassword absakeystoreProperties['keyPassword']
+            storeFile file(absakeystoreProperties['storeFile'])
+            storePassword absakeystoreProperties['storePassword']
+        }
+
+        fnbingenicodev {
+            keyAlias fnbkeystoreProperties['fnbingenicodev']
+            keyPassword fnbkeystoreProperties['keyPassword']
+            storeFile file(fnbkeystoreProperties['storeFile'])
+            storePassword fnbkeystoreProperties['storePassword']
+        }
+
+        fnbingenicoprod {
+            keyAlias fnbkeystoreProperties['fnbingenicoprod']
+            keyPassword fnbkeystoreProperties['keyPassword']
+            storeFile file(fnbkeystoreProperties['storeFile'])
+            storePassword fnbkeystoreProperties['storePassword']
+        }
+    }
+
+    flavorDimensions "segment", "pos", "env"
+    productFlavors {
+
+        //------------------------ segment
+
+        sbsa {
+            dimension "segment"
+            applicationId "com.standardbank"
+            applicationIdSuffix ".simplyblu"
+            manifestPlaceholders = [appName: "SimplyBLU Mpp"]
+            resValue "string", "app_name", "SimplyBLU"
+        }
+
+        yellowtoast {
+            dimension "segment"
+            applicationId "com.standardbank"
+            applicationIdSuffix ".simplyblu.yellowtoast"
+            manifestPlaceholders = [appName: "SimplyBLU Mpp"]
+            resValue "string", "app_name", "SimplyBLU"
+        }
+
+
+        lf {
+            dimension "segment"
+            applicationId "africa.littlefishapp"
+            applicationIdSuffix ".merchantapp"
+            manifestPlaceholders = [appName: "littlefish"]
+            resValue "string", "app_name", "littlefish"
+        }
+
+        // absa {
+         //     dimension "segment"
+         //     applicationId "za.absa"
+         //     applicationIdSuffix ".shopred"
+         //     manifestPlaceholders = [appName: "ABSA"]
+         //     resValue "string", "app_name", "ShopRed"
+         // }
+
+        absaza {
+             dimension "segment"
+             applicationId "za.absa"
+             applicationIdSuffix ".shopred"
+            manifestPlaceholders = [appName: "ABSA"]
+            resValue "string", "app_name", "ShopRed"
+        }
+
+        fnb {
+            dimension "segment"
+            applicationId "za.co.fnb.webstore"
+            applicationIdSuffix ""
+            manifestPlaceholders = [appName: "FNB Webstore"]
+            resValue "string", "app_name", "FNB Webstore"
+        }
+
+        //--------------------------- pos
+
+        
+
+        ingenico {
+            dimension "pos"
+            applicationIdSuffix ".ingenico"
+            repositories {
+                maven {
+                    url "${project(':background_fetch').projectDir}/libs"
+                }
+            }
+        }
+
+        //------------------------- env
+
+        prod {
+            dimension "env"
+            applicationIdSuffix ".prod"
+            manifestPlaceholders = [appName: "littlefish App"]
+        }
+
+        dev {
+            dimension "env"
+            applicationIdSuffix ".dev"
+            manifestPlaceholders = [appName: "[DEV] littlefish App"]
+        }
+
+    }
+
+
+
+
+    buildTypes {
+        release {
+            println("#### release ")
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'pos-proguard-rules.pro'
+        }
+        debug {
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'pos-proguard-rules.pro'
+        }
+    }
+
+
+
+    androidComponents {
+        onVariants(selector().all(), { variant ->
+            if (variant.name.contains("Ingenico") ) {
+                println("#### Manage variant ${variant.name} -> ")
+                manageVariants(variant, sbkeystoreProperties, signingConfigs);
+            } else {
+                // println("#### ${variant.name} not selected for signing ")
+            }
+        })
+    }
+}
+
+flutter {
+    source '../..'
+}
+
+def manageVariants(Object variant, Object keystore, Object signingConfigs) {
+    String[] parts = variant.name.contains("Release") ? variant.name.split("Release", 2) : variant.name.split("Debug", 2);
+    
+    String part0 = parts[0].toLowerCase();
+    String[] configs = signingConfigs;
+    configs.each{ item -> 
+         
+            def val = item.find(part0)
+            if (val != null) {
+              // println("#### SigningConfig  $val found and signing config set")
+              variant.signingConfig?.setConfig(signingConfigs[val])
+            } 
+        
+    }
+    
+}
+
+
+dependencies {
+    implementation 'com.google.firebase:firebase-crashlytics:18.0.1'  // This version is compatible with newer Kotlin
+    implementation 'com.google.firebase:firebase-analytics:18.0.0'
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.4'
+    // Keep appcompat at 1.6.1 since 1.7.0 is causing dexing issues
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+}
+
+
+
+// https://github.com/flutter/flutter
+// Allow to dynamically depend on plugins based on current app flavor #80940
+// flavored_packages: ^0.0.2
+// Proposal to add flavor to pubspec.yaml https://github.com/flutter/flutter/issues/100813#top 
+
+// script to select a yaml https://gist.github.com/jj-hoeksema/c5a54a1cdd1da9ab7a3100c6b5797e05 
+// lib/
+// tools/
+// ---flavor_setup.dart
+// pubspec/
+// ---defaults.yaml
+// ---google.yaml
+// ---amazon.yam
+// pubspec.yaml

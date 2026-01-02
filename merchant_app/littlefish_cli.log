@@ -1,0 +1,122 @@
+2024-11-27 09:50:09 - Error: Invalid command.
+2024-11-27 09:50:48 - Error: pubspec.yaml.app does not exist.
+2024-11-27 09:51:18 - Switched to pubspec.yaml.for_app and copied to pubspec.yaml
+2024-11-27 09:51:21 - Error: app/build.gradle.for_app does not exist.
+2024-11-27 09:52:08 - Switched to pubspec.yaml.for_bpos and copied to pubspec.yaml
+2024-11-27 09:52:10 - Error: app/build.gradle.for_bpos does not exist.
+2024-11-27 09:52:30 - Saving current pubspec.yaml to pubspec.yaml.bpos
+2024-11-27 09:52:30 - Template for bpos has been created.
+2024-11-27 09:53:12 - Saving current pubspec.yaml to pubspec.yaml.for_bpos
+2024-11-27 09:53:14 - Template for bpos has been updated.
+2024-11-27 09:54:06 - Saving current pubspec.yaml to pubspec.yaml.for_bpos
+2024-11-27 09:54:07 - Template for bpos has been updated.
+2024-11-27 10:04:07 - Cleaning project...
+2024-11-27 10:04:34 - Project cleaned.
+2024-11-27 10:04:40 - Running Flutter pub get and pod install...
+2024-11-27 10:05:11 - Running Flutter pub get and pod install...
+2024-11-27 10:05:39 - Cleaning project...
+2024-11-27 10:05:45 - Project cleaned.
+2024-11-27 10:06:01 - Running Flutter pub get and pod install...
+2024-11-27 10:14:22 - Switched to pubspec.yaml.for_app and copied to pubspec.yaml
+2024-11-27 10:14:24 - Error: app/build.gradle.for_app does not exist.
+2024-11-27 10:14:34 - Saving current pubspec.yaml to pubspec.yaml.for_app
+2024-11-27 10:14:37 - Template save canceled.
+2024-11-27 10:14:59 - Saving current pubspec.yaml, app/build.gradle, and settings.gradle to their respective target templates for app.
+2024-11-27 10:15:06 - Pubspec template for app has been updated.
+2024-11-27 10:15:06 - Build.gradle template for app has been created.
+2024-11-27 10:15:06 - Settings.gradle template for app has been created.
+2024-11-27 10:15:47 - Saving current pubspec.yaml, ./app/build.gradle, and settings.gradle to their respective target templates for app.
+2024-11-27 10:15:48 - Pubspec template for app has been updated.
+2024-11-27 10:15:48 - Build.gradle template for app has been created.
+2024-11-27 10:15:48 - Settings.gradle template for app has been created.
+2024-11-27 10:16:57 - Switched to pubspec.yaml.for_app and copied to pubspec.yaml
+2024-11-27 10:16:59 - Switched to android/app/build.gradle.for_app and copied to android/app/build.gradle
+2024-11-27 10:16:59 - No custom android/settings.gradle.for_app found. Using default android/settings.gradle.
+2024-11-27 10:16:59 - Configuration switched successfully for app.
+2024-11-27 10:17:19 - Switched to pubspec.yaml.for_app and copied to pubspec.yaml
+2024-11-27 10:17:21 - Switched to android/app/build.gradle.for_app and copied to android/app/build.gradle
+2024-11-27 10:17:21 - No custom android/settings.gradle.for_app found. Using default android/settings.gradle.
+2024-11-27 10:17:21 - Configuration switched successfully for app.
+2024-11-27 10:17:42 - Switched to pubspec.yaml.for_app and copied to pubspec.yaml
+2024-11-27 10:17:44 - Switched to android/app/build.gradle.for_app and copied to android/app/build.gradle
+2024-11-27 10:17:44 - No custom android/settings.gradle.for_app found. Using default android/settings.gradle.
+2024-11-27 10:17:44 - Configuration switched successfully for app.
+2024-11-27 10:18:32 - Saving current pubspec.yaml, android/app/build.gradle, and android/settings.gradle to their respective target templates for app.
+2024-11-27 10:18:35 - Pubspec template for app has been updated.
+2024-11-27 10:18:38 - Build.gradle template for app has been updated.
+2024-11-27 10:18:38 - Settings.gradle template for app has been created.
+2024-11-27 13:45:43 - Switched to pubspec.yaml.for_app and copied to pubspec.yaml
+2024-11-27 13:45:47 - Switched to android/app/build.gradle.for_app and copied to android/app/build.gradle
+2024-11-27 13:45:48 - Switched to android/settings.gradle.for_app and copied to android/settings.gradle
+2024-11-27 13:45:48 - Configuration switched successfully for app.
+2024-11-27 13:46:05 - Saving current pubspec.yaml, android/app/build.gradle, and android/settings.gradle to their respective target templates for app.
+2024-11-27 13:46:06 - Pubspec template for app has been updated.
+2024-11-27 13:46:07 - Build.gradle template for app has been updated.
+2024-11-27 13:46:08 - Settings.gradle template for app has been updated.
+2024-11-27 13:46:29 - Saving current pubspec.yaml, android/app/build.gradle, and android/settings.gradle to their respective target templates for chris.
+2024-11-27 13:46:29 - Pubspec template for chris has been created.
+2024-11-27 13:46:29 - Build.gradle template for chris has been created.
+2024-11-27 13:46:29 - Settings.gradle template for chris has been created.
+2024-11-27 13:46:55 - Error: Invalid set option.
+2024-11-27 13:47:39 - Error: Invalid command.
+2024-11-27 13:47:53 - Switched to pubspec.yaml.for_bpos and copied to pubspec.yaml
+2024-11-27 13:47:56 - Switched to android/app/build.gradle.for_bpos and copied to android/app/build.gradle
+2024-11-27 13:47:56 - No custom android/settings.gradle.for_bpos found. Using default android/settings.gradle.
+2024-11-27 13:47:56 - Configuration switched successfully for bpos.
+2024-11-27 13:48:21 - Saving current pubspec.yaml, android/app/build.gradle, and android/settings.gradle to their respective target templates for bpos2.
+2024-11-27 13:48:21 - Pubspec template for bpos2 has been created.
+2024-11-27 13:48:21 - Build.gradle template for bpos2 has been created.
+2024-11-27 13:48:21 - Settings.gradle template for bpos2 has been created.
+2024-11-27 13:48:48 - Switched to pubspec.yaml.for_app and copied to pubspec.yaml
+2024-11-27 13:48:50 - Switched to android/app/build.gradle.for_app and copied to android/app/build.gradle
+2024-11-27 13:48:50 - Switched to android/settings.gradle.for_app and copied to android/settings.gradle
+2024-11-27 13:48:50 - Configuration switched successfully for app.
+2024-11-27 13:49:03 - Switched to pubspec.yaml.for_mpp and copied to pubspec.yaml
+2024-11-27 13:49:05 - Switched to android/app/build.gradle.for_mpp and copied to android/app/build.gradle
+2024-11-27 13:49:05 - No custom android/settings.gradle.for_mpp found. Using default android/settings.gradle.
+2024-11-27 13:49:05 - Configuration switched successfully for mpp.
+2024-11-27 13:49:15 - Switched to pubspec.yaml.for_app and copied to pubspec.yaml
+2024-11-27 13:50:13 - Switched to android/app/build.gradle.for_app and copied to android/app/build.gradle
+2024-11-27 13:50:13 - Switched to android/settings.gradle.for_app and copied to android/settings.gradle
+2024-11-27 13:50:13 - Configuration switched successfully for app.
+2024-11-28 12:48:18 - Error: Invalid command.
+2024-11-28 12:48:33 - Switched to pubspec.yaml.for_app and copied to pubspec.yaml
+2024-11-28 12:48:38 - Switched to android/app/build.gradle.for_app and copied to android/app/build.gradle
+2024-11-28 12:48:38 - Switched to android/settings.gradle.for_app and copied to android/settings.gradle
+2024-11-28 12:48:38 - Configuration switched successfully for app.
+2024-11-28 12:49:09 - Saving current pubspec.yaml, android/app/build.gradle, and android/settings.gradle to their respective target templates for bruce.
+2024-11-28 12:49:09 - Pubspec template for bruce has been created.
+2024-11-28 12:49:09 - Build.gradle template for bruce has been created.
+2024-11-28 12:49:09 - Settings.gradle template for bruce has been created.
+2024-11-28 12:49:33 - Switched to pubspec.yaml.for_bpos and copied to pubspec.yaml
+2024-11-28 12:49:35 - Switched to android/app/build.gradle.for_bpos and copied to android/app/build.gradle
+2024-11-28 12:49:35 - No custom android/settings.gradle.for_bpos found. Using default android/settings.gradle.
+2024-11-28 12:49:35 - Configuration switched successfully for bpos.
+2024-11-28 13:49:40 - Error: Invalid set option.
+2024-11-28 13:49:49 - Switched to pubspec.yaml.for_bpos and copied to pubspec.yaml
+2024-11-28 13:49:53 - Switched to android/app/build.gradle.for_bpos and copied to android/app/build.gradle
+2024-11-28 13:49:53 - No custom android/settings.gradle.for_bpos found. Using default android/settings.gradle.
+2024-11-28 13:49:53 - Configuration switched successfully for bpos.
+2024-11-28 13:50:05 - Saving current pubspec.yaml, android/app/build.gradle, and android/settings.gradle to their respective target templates for bpos.
+2024-11-28 13:50:07 - Pubspec template for bpos has been updated.
+2024-11-28 13:50:07 - Build.gradle template for bpos has been updated.
+2024-11-28 13:50:07 - Settings.gradle template for bpos has been created.
+2024-11-28 13:50:28 - Saving current pubspec.yaml, android/app/build.gradle, and android/settings.gradle to their respective target templates for bpos_3.
+2024-11-28 13:50:28 - Pubspec template for bpos_3 has been created.
+2024-11-28 13:50:28 - Build.gradle template for bpos_3 has been created.
+2024-11-28 13:50:28 - Settings.gradle template for bpos_3 has been created.
+2024-12-12 14:51:18 - Error: Invalid command.
+2024-12-12 14:52:01 - Error: Invalid set option.
+2024-12-12 14:52:10 - Saving current pubspec.yaml, android/app/build.gradle, and android/settings.gradle to their respective target templates for notfirebase.
+2024-12-12 14:52:10 - Pubspec template for notfirebase has been created.
+2024-12-12 14:52:10 - Build.gradle template for notfirebase has been created.
+2024-12-12 14:52:10 - Settings.gradle template for notfirebase has been created.
+2024-12-12 14:52:35 - Switched to pubspec.yaml.for_bpos and copied to pubspec.yaml
+2024-12-12 14:52:38 - Switched to android/app/build.gradle.for_bpos and copied to android/app/build.gradle
+2024-12-12 14:52:38 - No custom android/settings.gradle.for_bpos found. Using default android/settings.gradle.
+2024-12-12 14:52:38 - Configuration switched successfully for bpos.
+2024-12-12 14:52:53 - Saving current pubspec.yaml, android/app/build.gradle, and android/settings.gradle to their respective target templates for bpos.
+2024-12-12 14:52:56 - Pubspec template for bpos has been updated.
+2024-12-12 14:52:57 - Build.gradle template for bpos has been updated.
+2024-12-12 14:52:57 - Settings.gradle template for bpos has been created.
+2025-01-02 18:51:35 - Error: Invalid command.

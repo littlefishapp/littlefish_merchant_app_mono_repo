@@ -1,0 +1,2 @@
+/Users/brandonroberts/littlefish/source/littlefish_merchant_app/android/app/.cxx/debug/3c4v42j4/x86_64/CMakeFiles/edit_cache.dir
+/Users/brandonroberts/littlefish/source/littlefish_merchant_app/android/app/.cxx/debug/3c4v42j4/x86_64/CMakeFiles/rebuild_cache.dir

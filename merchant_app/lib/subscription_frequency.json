@@ -1,0 +1,8 @@
+{
+    "low": "* * 3",
+    "medium": "* * 1",
+    "high": "* 4 *",
+    "lowDays": 7,
+    "mediumDays": 14,
+    "highDays": 30
+  }

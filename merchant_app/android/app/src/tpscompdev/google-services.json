@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "373289528223",
+    "project_id": "tps-dev-1",
+    "storage_bucket": "tps-dev-1.firebasestorage.app"
+  }, 
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:373289528223:android:5380ca63b6a520cd0eabaa",
+        "android_client_info": {
+          "package_name": "global.sassai.tpsone.android.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmNeT8SzHtO_b4MnxmEvqiOsEsm2WiOa4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:373289528223:android:a594b15c6c98a6be0eabaa",
+        "android_client_info": {
+          "package_name": "global.sassai.tpsone.pax.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmNeT8SzHtO_b4MnxmEvqiOsEsm2WiOa4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

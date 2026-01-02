@@ -1,0 +1,63 @@
+import 'package:flutter/foundation.dart';
+import 'package:littlefish_core/core/littlefish_core.dart';
+import 'package:littlefish_core/hardware/printers/drivers/pos_printer.dart';
+import 'package:littlefish_core/hardware/scanners/littlefish_scanner.dart';
+import 'package:littlefish_merchant/app/app.dart';
+import 'package:littlefish_merchant/features/multi_cart_item_infrared_barcode_scanner/data/multi_item_infrared_barcode_scanner.dart';
+import 'package:littlefish_merchant/features/multi_cart_item_infrared_barcode_scanner/presentation/viewmodel/pos_multi_barcode_scanner_vm.dart';
+import 'package:littlefish_merchant/injector.dart';
+import 'package:littlefish_merchant/app/app.dart';
+import 'package:littlefish_payments/gateways/pos_payment_gateway.dart';
+import 'package:littlefish_payments/managers/terminal_manager.dart';
+import 'package:littlefish_payments_pos_bpos/gateways/broadpos_paymentgateway.dart';
+
+//BPOS PAYMENT INJECTOR
+class PaymentsInjector {
+  static Future<CardPaymentRegistered> inject() async {
+    LittleFishCore core = LittleFishCore.instance;
+
+    CardPaymentRegistered result = CardPaymentRegistered.pos;
+
+    final package = await TerminalManager.getPackageInformation();
+
+    BroadPOSPaymentGateway broadPOSPaymentGateway =
+        BroadPOSPaymentGateway(package);
+
+    await broadPOSPaymentGateway.initialise();
+
+    result = CardPaymentRegistered.pos;
+
+    core.registerLazyService<POSPaymentGateway>(
+      () => broadPOSPaymentGateway,
+    );
+
+    cardPaymentRegistered = result;
+    AppVariables.canPrintMerchantAndCustomerCopy = true;
+
+    broadPOSPaymentGateway.getPOSPrinter().then((value) {
+      AppVariables.hasPrinter = true;
+      AppVariables.hasPrinterInitialized = true;
+      core.registerLazyService<POSPrinter>(() => value);
+    }).catchError((e) {
+      //ToDo: we need to move the app into an error state, so that it can restart this process.
+      debugPrint('Error getting printer: $e');
+    });
+
+    broadPOSPaymentGateway.getPOSScanner().then((value) {
+      AppVariables.hasScannerInitialized = true;
+      AppVariables.hasScanner = true;
+      core.registerLazyService<LittleFishScanner>(() => value);
+    }).catchError((e) {
+      //ToDo: we need to move the app into an error state, so that it can restart this process.
+      debugPrint('Error getting scanner: $e');
+    });
+
+    AppVariables.providerActions = broadPOSPaymentGateway.getSupportedActions();  
+
+    core.registerLazyService<MultiCartItemInfraBarcodeScanner>(
+      () => PosMultiCartItemBarcodeScannerVM(),
+    );
+
+    return result;
+  }
+}
