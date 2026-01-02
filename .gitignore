@@ -1,0 +1,11 @@
+# Dart/Flutter generated files
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+*.iml
+
+# IDE
+.idea/
+
+# macOS
+.DS_Store
