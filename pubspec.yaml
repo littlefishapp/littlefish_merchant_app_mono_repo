@@ -24,6 +24,8 @@ dev_dependencies:
 
 workspace:
   - merchant_app
+  # Shared models package
+  - features/models/littlefish_feature_models
   # Existing feature packages
   - features/products/littlefish_feature_products
   - features/security/littlefish_feature_security

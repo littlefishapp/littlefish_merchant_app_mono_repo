@@ -1,0 +1,31 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'workspace.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+Workspace _$WorkspaceFromJson(Map<String, dynamic> json) => Workspace(
+  name: json['name'] as String,
+  navbarConfig: (json['navbarConfig'] as List<dynamic>)
+      .map((e) => NavbarConfigItem.fromJson(e as Map<String, dynamic>))
+      .toList(),
+);
+
+Map<String, dynamic> _$WorkspaceToJson(Workspace instance) => <String, dynamic>{
+  'name': instance.name,
+  'navbarConfig': instance.navbarConfig,
+};
+
+NavbarConfigItem _$NavbarConfigItemFromJson(Map<String, dynamic> json) =>
+    NavbarConfigItem(
+      pageType: json['pageType'] as String,
+      description: json['description'] as String?,
+    );
+
+Map<String, dynamic> _$NavbarConfigItemToJson(NavbarConfigItem instance) =>
+    <String, dynamic>{
+      'pageType': instance.pageType,
+      'description': instance.description,
+    };
