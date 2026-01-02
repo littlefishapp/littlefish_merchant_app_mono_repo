@@ -8,23 +8,23 @@ import 'package:littlefish_merchant/models/sales/checkout/checkout_discount.dart
 import 'package:littlefish_merchant/redux/discounts/discounts_actions.dart';
 import 'package:littlefish_merchant/redux/discounts/discounts_state.dart';
 
-import '../auth/auth_actions.dart';
+// import '../auth/auth_actions.dart';
 
 final discountReducer = combineReducers<DiscountState>([
   TypedReducer<DiscountState, DiscountsLoadingAction>(onSetLoading).call,
   TypedReducer<DiscountState, DiscountChangedAction>(onDiscountChanged).call,
   TypedReducer<DiscountState, DiscountsLoadedAction>(onDiscountsLoaded).call,
   TypedReducer<DiscountState, DiscountsErrorAction>(onDiscountError).call,
-  TypedReducer<DiscountState, SignoutAction>(onClearState).call,
+  // TypedReducer<DiscountState, SignoutAction>(onClearState).call,
 ]);
 
-DiscountState onClearState(DiscountState state, SignoutAction action) =>
-    state.rebuild((b) {
-      b.isLoading = false;
-      b.hasError = false;
-      b.errorMessage = null;
-      b.discounts = [];
-    });
+// DiscountState onClearState(DiscountState state, SignoutAction action) =>
+//     state.rebuild((b) {
+//       b.isLoading = false;
+//       b.hasError = false;
+//       b.errorMessage = null;
+//       b.discounts = [];
+//     });
 
 DiscountState onSetLoading(
   DiscountState state,

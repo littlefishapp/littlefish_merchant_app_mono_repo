@@ -1886,7 +1886,7 @@ packages:
     source: hosted
     version: "4.0.1"
   littlefish_core:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       name: littlefish_core
       sha256: "19996457ead8e37e4861f5a9a67ae70620bb8bfe6a097027bd5230aad4830e5d"
@@ -1894,7 +1894,7 @@ packages:
     source: hosted
     version: "4.2.1"
   littlefish_core_utils:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       name: littlefish_core_utils
       sha256: "2e97b1b496452c3d60c7fe173fab0ff466f329e3ff4f5393d60323b8f158f01f"

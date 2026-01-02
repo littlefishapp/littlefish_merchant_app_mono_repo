@@ -18,7 +18,6 @@ import 'package:littlefish_merchant/models/stock/stock_variance.dart';
 import 'package:littlefish_merchant/providers/file_system_provider.dart';
 import 'package:littlefish_merchant/tools/converters/iso_date_time_converter.dart';
 
-import '../../features/ecommerce_shared/models/checkout/checkout_order.dart';
 import 'external_product_values.dart';
 
 part 'stock_product.g.dart';

@@ -8,7 +8,7 @@ import 'package:littlefish_merchant/models/expenses/business_expense.dart';
 import 'package:littlefish_merchant/redux/expenses/expenses_actions.dart';
 import 'package:littlefish_merchant/redux/expenses/expenses_state.dart';
 
-import '../auth/auth_actions.dart';
+// import '../auth/auth_actions.dart';
 
 final expensesReducer = combineReducers<ExpensesState>([
   TypedReducer<ExpensesState, ExpenseChangedAction>(onExpensesChanged).call,
@@ -16,19 +16,19 @@ final expensesReducer = combineReducers<ExpensesState>([
   TypedReducer<ExpensesState, SetExpensesStateFailureAction>(
     onStateFailure,
   ).call,
-  TypedReducer<ExpensesState, SignoutAction>(onClearState).call,
+  // TypedReducer<ExpensesState, SignoutAction>(onClearState).call,
   TypedReducer<ExpensesState, SetExpensesStateLoadingAction>(
     onSetExpensesLoading,
   ).call,
 ]);
 
-ExpensesState onClearState(ExpensesState state, SignoutAction action) =>
-    state.rebuild((b) {
-      b.isLoading = false;
-      b.hasError = false;
-      b.errorMessage = null;
-      b.expenses = [];
-    });
+// ExpensesState onClearState(ExpensesState state, SignoutAction action) =>
+//     state.rebuild((b) {
+//       b.isLoading = false;
+//       b.hasError = false;
+//       b.errorMessage = null;
+//       b.expenses = [];
+//     });
 
 ExpensesState onExpensesChanged(
   ExpensesState state,

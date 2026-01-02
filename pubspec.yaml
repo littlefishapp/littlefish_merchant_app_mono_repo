@@ -11,6 +11,10 @@ environment:
 dependency_overrides: 
   decimal: 3.2.4
   flutter_lints: ^6.0.0
+  
+  ##littlefish defaults
+  littlefish_core: ^4.2.0
+  littlefish_core_utils: ^4.2.3
 
 dev_dependencies:
   flutter_test:
